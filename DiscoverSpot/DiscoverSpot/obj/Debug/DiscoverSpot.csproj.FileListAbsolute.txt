@@ -1,0 +1,9 @@
+C:\Users\Isabelle\source\repos\isabellebakker\CSC470MusicDiscovery\DiscoverSpot\DiscoverSpot\bin\Debug\DiscoverSpot.exe.config
+C:\Users\Isabelle\source\repos\isabellebakker\CSC470MusicDiscovery\DiscoverSpot\DiscoverSpot\bin\Debug\DiscoverSpot.exe
+C:\Users\Isabelle\source\repos\isabellebakker\CSC470MusicDiscovery\DiscoverSpot\DiscoverSpot\bin\Debug\DiscoverSpot.pdb
+C:\Users\Isabelle\source\repos\isabellebakker\CSC470MusicDiscovery\DiscoverSpot\DiscoverSpot\obj\Debug\DiscoverSpot.csproj.AssemblyReference.cache
+C:\Users\Isabelle\source\repos\isabellebakker\CSC470MusicDiscovery\DiscoverSpot\DiscoverSpot\obj\Debug\DiscoverSpot.Properties.Resources.resources
+C:\Users\Isabelle\source\repos\isabellebakker\CSC470MusicDiscovery\DiscoverSpot\DiscoverSpot\obj\Debug\DiscoverSpot.csproj.GenerateResource.cache
+C:\Users\Isabelle\source\repos\isabellebakker\CSC470MusicDiscovery\DiscoverSpot\DiscoverSpot\obj\Debug\DiscoverSpot.csproj.CoreCompileInputs.cache
+C:\Users\Isabelle\source\repos\isabellebakker\CSC470MusicDiscovery\DiscoverSpot\DiscoverSpot\obj\Debug\DiscoverSpot.exe
+C:\Users\Isabelle\source\repos\isabellebakker\CSC470MusicDiscovery\DiscoverSpot\DiscoverSpot\obj\Debug\DiscoverSpot.pdb

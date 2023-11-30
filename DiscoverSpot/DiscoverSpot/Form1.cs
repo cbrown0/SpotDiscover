@@ -14,7 +14,10 @@ namespace DiscoverSpot
     {
         public Form1()
         {
+            //hi
             InitializeComponent();
+            //test edit, very important DO NOT DELETE
+            // test
         }
     }
 }

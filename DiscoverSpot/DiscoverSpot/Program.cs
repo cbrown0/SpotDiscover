@@ -14,7 +14,7 @@ namespace DiscoverSpot
         [STAThread]
         static void Main()
         {
-            Application.EnableVisualStyles();
+            Application.EnableVisualStyles(); //gahghfaskhgkhgah
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Form1());
         }
