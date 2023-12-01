@@ -17,3 +17,17 @@ C:\Users\carte\Source\Repos\CSC470MusicDiscovery\DiscoverSpot\DiscoverSpot\obj\D
 C:\Users\carte\Source\Repos\CSC470MusicDiscovery\DiscoverSpot\DiscoverSpot\obj\Debug\DiscoverSpot.csproj.CoreCompileInputs.cache
 C:\Users\carte\Source\Repos\CSC470MusicDiscovery\DiscoverSpot\DiscoverSpot\obj\Debug\DiscoverSpot.exe
 C:\Users\carte\Source\Repos\CSC470MusicDiscovery\DiscoverSpot\DiscoverSpot\obj\Debug\DiscoverSpot.pdb
+C:\Users\carte\Source\Repos\CSC470MusicDiscovery\DiscoverSpot\DiscoverSpot\bin\Debug\EmbedIO.dll
+C:\Users\carte\Source\Repos\CSC470MusicDiscovery\DiscoverSpot\DiscoverSpot\bin\Debug\Newtonsoft.Json.dll
+C:\Users\carte\Source\Repos\CSC470MusicDiscovery\DiscoverSpot\DiscoverSpot\bin\Debug\SpotifyAPI.Web.Auth.dll
+C:\Users\carte\Source\Repos\CSC470MusicDiscovery\DiscoverSpot\DiscoverSpot\bin\Debug\SpotifyAPI.Web.dll
+C:\Users\carte\Source\Repos\CSC470MusicDiscovery\DiscoverSpot\DiscoverSpot\bin\Debug\Swan.Lite.dll
+C:\Users\carte\Source\Repos\CSC470MusicDiscovery\DiscoverSpot\DiscoverSpot\bin\Debug\System.ValueTuple.dll
+C:\Users\carte\Source\Repos\CSC470MusicDiscovery\DiscoverSpot\DiscoverSpot\bin\Debug\EmbedIO.pdb
+C:\Users\carte\Source\Repos\CSC470MusicDiscovery\DiscoverSpot\DiscoverSpot\bin\Debug\EmbedIO.xml
+C:\Users\carte\Source\Repos\CSC470MusicDiscovery\DiscoverSpot\DiscoverSpot\bin\Debug\Newtonsoft.Json.xml
+C:\Users\carte\Source\Repos\CSC470MusicDiscovery\DiscoverSpot\DiscoverSpot\bin\Debug\SpotifyAPI.Web.xml
+C:\Users\carte\Source\Repos\CSC470MusicDiscovery\DiscoverSpot\DiscoverSpot\bin\Debug\SpotifyAPI.Web.Auth.xml
+C:\Users\carte\Source\Repos\CSC470MusicDiscovery\DiscoverSpot\DiscoverSpot\bin\Debug\Swan.Lite.xml
+C:\Users\carte\Source\Repos\CSC470MusicDiscovery\DiscoverSpot\DiscoverSpot\bin\Debug\System.ValueTuple.xml
+C:\Users\carte\Source\Repos\CSC470MusicDiscovery\DiscoverSpot\DiscoverSpot\obj\Debug\DiscoverSpot.csproj.CopyComplete
