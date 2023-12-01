@@ -19,5 +19,15 @@ namespace DiscoverSpot
             //test edit, very important DO NOT DELETE
             // test
         }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+            // This is a label
+        }
     }
 }
