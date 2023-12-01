@@ -7,3 +7,13 @@ C:\Users\Isabelle\source\repos\isabellebakker\CSC470MusicDiscovery\DiscoverSpot\
 C:\Users\Isabelle\source\repos\isabellebakker\CSC470MusicDiscovery\DiscoverSpot\DiscoverSpot\obj\Debug\DiscoverSpot.csproj.CoreCompileInputs.cache
 C:\Users\Isabelle\source\repos\isabellebakker\CSC470MusicDiscovery\DiscoverSpot\DiscoverSpot\obj\Debug\DiscoverSpot.exe
 C:\Users\Isabelle\source\repos\isabellebakker\CSC470MusicDiscovery\DiscoverSpot\DiscoverSpot\obj\Debug\DiscoverSpot.pdb
+C:\Users\carte\Source\Repos\CSC470MusicDiscovery\DiscoverSpot\DiscoverSpot\bin\Debug\DiscoverSpot.exe.config
+C:\Users\carte\Source\Repos\CSC470MusicDiscovery\DiscoverSpot\DiscoverSpot\bin\Debug\DiscoverSpot.exe
+C:\Users\carte\Source\Repos\CSC470MusicDiscovery\DiscoverSpot\DiscoverSpot\bin\Debug\DiscoverSpot.pdb
+C:\Users\carte\Source\Repos\CSC470MusicDiscovery\DiscoverSpot\DiscoverSpot\obj\Debug\DiscoverSpot.csproj.AssemblyReference.cache
+C:\Users\carte\Source\Repos\CSC470MusicDiscovery\DiscoverSpot\DiscoverSpot\obj\Debug\DiscoverSpot.Form1.resources
+C:\Users\carte\Source\Repos\CSC470MusicDiscovery\DiscoverSpot\DiscoverSpot\obj\Debug\DiscoverSpot.Properties.Resources.resources
+C:\Users\carte\Source\Repos\CSC470MusicDiscovery\DiscoverSpot\DiscoverSpot\obj\Debug\DiscoverSpot.csproj.GenerateResource.cache
+C:\Users\carte\Source\Repos\CSC470MusicDiscovery\DiscoverSpot\DiscoverSpot\obj\Debug\DiscoverSpot.csproj.CoreCompileInputs.cache
+C:\Users\carte\Source\Repos\CSC470MusicDiscovery\DiscoverSpot\DiscoverSpot\obj\Debug\DiscoverSpot.exe
+C:\Users\carte\Source\Repos\CSC470MusicDiscovery\DiscoverSpot\DiscoverSpot\obj\Debug\DiscoverSpot.pdb
