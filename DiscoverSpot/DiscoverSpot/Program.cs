@@ -17,6 +17,7 @@ namespace DiscoverSpot
         {
             var spotify = new SpotifyClient("YourAccessToken");
 
+            // Should display the song diskhat1 by aphex twin
             var track = await spotify.Tracks.Get("1s6ux0lNiTziSrd7iUAADH");
             Console.WriteLine(track.Name);
 
