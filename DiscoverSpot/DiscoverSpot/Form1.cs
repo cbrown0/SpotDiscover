@@ -35,7 +35,6 @@ namespace DiscoverSpot
 
         private async void button1_Click(object sender, EventArgs e)
         {
-            // This is a label
             // Make sure "http://localhost:5543/callback" is in your spotify application as redirect uri!
             _server = new EmbedIOAuthServer(new Uri("http://localhost:5543/callback"), 5543);
             await _server.Start();
@@ -48,6 +47,9 @@ namespace DiscoverSpot
                 Scope = new List<string> { Scopes.UserReadEmail }
             };
             BrowserUtil.Open(request.ToUri());
+            this.Hide();
+            new Form2().Show();
+            
         }
         private static async Task OnAuthorizationCodeReceived(object sender, AuthorizationCodeResponse response)
         {

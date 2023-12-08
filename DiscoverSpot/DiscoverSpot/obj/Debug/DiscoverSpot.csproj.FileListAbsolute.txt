@@ -46,3 +46,4 @@ C:\Users\Isabelle\source\repos\isabellebakker\CSC470MusicDiscovery\DiscoverSpot\
 C:\Users\Isabelle\source\repos\isabellebakker\CSC470MusicDiscovery\DiscoverSpot\DiscoverSpot\bin\Debug\System.ValueTuple.xml
 C:\Users\Isabelle\source\repos\isabellebakker\CSC470MusicDiscovery\DiscoverSpot\DiscoverSpot\obj\Debug\DiscoverSpot.Form1.resources
 C:\Users\Isabelle\source\repos\isabellebakker\CSC470MusicDiscovery\DiscoverSpot\DiscoverSpot\obj\Debug\DiscoverSpot.csproj.CopyComplete
+C:\Users\carte\Source\Repos\CSC470MusicDiscovery\DiscoverSpot\DiscoverSpot\obj\Debug\DiscoverSpot.Form2.resources
