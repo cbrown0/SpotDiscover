@@ -121,14 +121,20 @@ namespace DiscoverSpot
         {
             // Initialize Spotify when the button's clicked
             await InitializeSpotify();
+            var user = await _spotify.UserProfile.Current();
+            label3.Text = user.DisplayName;
             // Hide authenticate button
             button1.Hide();
             // Show Display Track button
             button2.Show();
             // Show generate Playlist button
             button3.Show();
+            // Show currently signed in label
+            label2.Show();
+            // Show username label
+            label3.Show();
         }
-
+        
         private async void button2_Click(object sender, EventArgs e)
         {
             await GetTrack();
@@ -138,6 +144,11 @@ namespace DiscoverSpot
         private async void button3_Click(object sender, EventArgs e)
         {
             await CreatePlaylist();
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
