@@ -29,9 +29,9 @@ namespace DiscoverSpot
             _server.AuthorizationCodeReceived += OnAuthorizationCodeReceived;
             _server.ErrorReceived += OnErrorReceived;
 
-            var request = new LoginRequest(_server.BaseUri, "457d687267f447f39d58af721581f1b8", LoginRequest.ResponseType.Code)
+            var request = new LoginRequest(_server.BaseUri, "07d2f610371745aba056026392538495", LoginRequest.ResponseType.Code)
             {
-                Scope = new List<string> { Scopes.UserTopRead, Scopes.PlaylistModifyPrivate, Scopes.PlaylistModifyPublic }
+                Scope = new List<string> { Scopes.UserTopRead, Scopes.PlaylistModifyPrivate, Scopes.PlaylistModifyPublic, Scopes.UserReadEmail }
             };
 
             BrowserUtil.Open(request.ToUri());
@@ -44,7 +44,7 @@ namespace DiscoverSpot
            var config = SpotifyClientConfig.CreateDefault();
            var tokenResponse = await new OAuthClient(config).RequestToken(
                new AuthorizationCodeTokenRequest(
-                   "457d687267f447f39d58af721581f1b8", "f29c99014e624450b6c3f88a7c67a931", response.Code, new Uri("http://localhost:5543/callback")
+                   "07d2f610371745aba056026392538495", "469e5c1e0ad64a42a77fe116099330f3", response.Code, new Uri("http://localhost:5543/callback")
                )
            );
 
@@ -61,6 +61,7 @@ namespace DiscoverSpot
         
         public async static Task GetTrack()
         {
+            // displays track "diskhat1"
             var track = await _spotify.Tracks.Get("1s6ux0lNiTziSrd7iUAADH");
 
             _trackName = track.Name;
