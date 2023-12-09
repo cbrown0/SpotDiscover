@@ -32,7 +32,12 @@ namespace DiscoverSpot
             //client ID goes in second field of LoginRequest
             var request = new LoginRequest(_server.BaseUri, "07d2f610371745aba056026392538495", LoginRequest.ResponseType.Code)
             {
-                Scope = new List<string> { Scopes.UserTopRead, Scopes.PlaylistModifyPrivate, Scopes.PlaylistModifyPublic, Scopes.UserReadEmail }
+                Scope = new List<string> { 
+                    Scopes.UserTopRead, 
+                    Scopes.PlaylistModifyPrivate, 
+                    Scopes.PlaylistModifyPublic, 
+                    Scopes.UserReadEmail 
+                }
             };
 
             BrowserUtil.Open(request.ToUri());
@@ -60,8 +65,20 @@ namespace DiscoverSpot
        {
            await _server.Stop();
        }
+        private async Task CreatePlaylist()
+        {
+            var user = await _spotify.UserProfile.Current();
 
-        
+            // Generate SpotDiscover playlist
+            var request = new PlaylistCreateRequest("SpotDiscover")
+            {
+                Description = "Daily Discovery Playlist",
+                Public = false
+            };
+
+            var playlist = await _spotify.Playlists.Create(user.Id, request);
+        }
+
         public async static Task GetTrack()
         {
             // displays track "diskhat1"
@@ -69,7 +86,7 @@ namespace DiscoverSpot
 
             _trackName = track.Name;
         }
-        
+
         public Form1()
         {
             InitializeComponent();
@@ -81,23 +98,27 @@ namespace DiscoverSpot
             
         }
 
-        private void label1_Click(object sender, EventArgs e)
-        {
-            
-        }
-
         private async void Button1_Click(object sender, EventArgs e)
         {
             // Initialize Spotify when the button's clicked
             await InitializeSpotify();
+            // Hide authenticate button
             button1.Hide();
+            // Show Display Track button
             button2.Show();
+            // Show generate Playlist button
+            button3.Show();
         }
 
         private async void button2_Click(object sender, EventArgs e)
         {
             await GetTrack();
             label1.Text = _trackName;
+        }
+
+        private async void button3_Click(object sender, EventArgs e)
+        {
+            await CreatePlaylist();
         }
     }
 }
