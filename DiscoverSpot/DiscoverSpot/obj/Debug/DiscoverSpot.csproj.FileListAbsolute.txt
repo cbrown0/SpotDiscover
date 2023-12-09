@@ -47,3 +47,28 @@ C:\Users\Isabelle\source\repos\isabellebakker\CSC470MusicDiscovery\DiscoverSpot\
 C:\Users\Isabelle\source\repos\isabellebakker\CSC470MusicDiscovery\DiscoverSpot\DiscoverSpot\obj\Debug\DiscoverSpot.Form1.resources
 C:\Users\Isabelle\source\repos\isabellebakker\CSC470MusicDiscovery\DiscoverSpot\DiscoverSpot\obj\Debug\DiscoverSpot.csproj.CopyComplete
 C:\Users\carte\Source\Repos\CSC470MusicDiscovery\DiscoverSpot\DiscoverSpot\obj\Debug\DiscoverSpot.Form2.resources
+C:\Users\DSU Student\Source\Repos\CSC470MusicDiscovery\DiscoverSpot\DiscoverSpot\bin\Debug\DiscoverSpot.exe.config
+C:\Users\DSU Student\Source\Repos\CSC470MusicDiscovery\DiscoverSpot\DiscoverSpot\bin\Debug\DiscoverSpot.exe
+C:\Users\DSU Student\Source\Repos\CSC470MusicDiscovery\DiscoverSpot\DiscoverSpot\bin\Debug\DiscoverSpot.pdb
+C:\Users\DSU Student\Source\Repos\CSC470MusicDiscovery\DiscoverSpot\DiscoverSpot\bin\Debug\EmbedIO.dll
+C:\Users\DSU Student\Source\Repos\CSC470MusicDiscovery\DiscoverSpot\DiscoverSpot\bin\Debug\Newtonsoft.Json.dll
+C:\Users\DSU Student\Source\Repos\CSC470MusicDiscovery\DiscoverSpot\DiscoverSpot\bin\Debug\SpotifyAPI.Web.Auth.dll
+C:\Users\DSU Student\Source\Repos\CSC470MusicDiscovery\DiscoverSpot\DiscoverSpot\bin\Debug\SpotifyAPI.Web.dll
+C:\Users\DSU Student\Source\Repos\CSC470MusicDiscovery\DiscoverSpot\DiscoverSpot\bin\Debug\Swan.Lite.dll
+C:\Users\DSU Student\Source\Repos\CSC470MusicDiscovery\DiscoverSpot\DiscoverSpot\bin\Debug\System.ValueTuple.dll
+C:\Users\DSU Student\Source\Repos\CSC470MusicDiscovery\DiscoverSpot\DiscoverSpot\bin\Debug\EmbedIO.pdb
+C:\Users\DSU Student\Source\Repos\CSC470MusicDiscovery\DiscoverSpot\DiscoverSpot\bin\Debug\EmbedIO.xml
+C:\Users\DSU Student\Source\Repos\CSC470MusicDiscovery\DiscoverSpot\DiscoverSpot\bin\Debug\Newtonsoft.Json.xml
+C:\Users\DSU Student\Source\Repos\CSC470MusicDiscovery\DiscoverSpot\DiscoverSpot\bin\Debug\SpotifyAPI.Web.xml
+C:\Users\DSU Student\Source\Repos\CSC470MusicDiscovery\DiscoverSpot\DiscoverSpot\bin\Debug\SpotifyAPI.Web.Auth.xml
+C:\Users\DSU Student\Source\Repos\CSC470MusicDiscovery\DiscoverSpot\DiscoverSpot\bin\Debug\Swan.Lite.xml
+C:\Users\DSU Student\Source\Repos\CSC470MusicDiscovery\DiscoverSpot\DiscoverSpot\bin\Debug\System.ValueTuple.xml
+C:\Users\DSU Student\Source\Repos\CSC470MusicDiscovery\DiscoverSpot\DiscoverSpot\obj\Debug\DiscoverSpot.csproj.AssemblyReference.cache
+C:\Users\DSU Student\Source\Repos\CSC470MusicDiscovery\DiscoverSpot\DiscoverSpot\obj\Debug\DiscoverSpot.csproj.SuggestedBindingRedirects.cache
+C:\Users\DSU Student\Source\Repos\CSC470MusicDiscovery\DiscoverSpot\DiscoverSpot\obj\Debug\DiscoverSpot.Form1.resources
+C:\Users\DSU Student\Source\Repos\CSC470MusicDiscovery\DiscoverSpot\DiscoverSpot\obj\Debug\DiscoverSpot.Properties.Resources.resources
+C:\Users\DSU Student\Source\Repos\CSC470MusicDiscovery\DiscoverSpot\DiscoverSpot\obj\Debug\DiscoverSpot.csproj.GenerateResource.cache
+C:\Users\DSU Student\Source\Repos\CSC470MusicDiscovery\DiscoverSpot\DiscoverSpot\obj\Debug\DiscoverSpot.csproj.CoreCompileInputs.cache
+C:\Users\DSU Student\Source\Repos\CSC470MusicDiscovery\DiscoverSpot\DiscoverSpot\obj\Debug\DiscoverSpot.csproj.CopyComplete
+C:\Users\DSU Student\Source\Repos\CSC470MusicDiscovery\DiscoverSpot\DiscoverSpot\obj\Debug\DiscoverSpot.exe
+C:\Users\DSU Student\Source\Repos\CSC470MusicDiscovery\DiscoverSpot\DiscoverSpot\obj\Debug\DiscoverSpot.pdb
