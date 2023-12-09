@@ -28,7 +28,8 @@ namespace DiscoverSpot
 
             _server.AuthorizationCodeReceived += OnAuthorizationCodeReceived;
             _server.ErrorReceived += OnErrorReceived;
-
+            
+            //client ID goes in second field of LoginRequest
             var request = new LoginRequest(_server.BaseUri, "07d2f610371745aba056026392538495", LoginRequest.ResponseType.Code)
             {
                 Scope = new List<string> { Scopes.UserTopRead, Scopes.PlaylistModifyPrivate, Scopes.PlaylistModifyPublic, Scopes.UserReadEmail }
@@ -41,14 +42,16 @@ namespace DiscoverSpot
        {
            await _server.Stop();
 
-           var config = SpotifyClientConfig.CreateDefault();
-           var tokenResponse = await new OAuthClient(config).RequestToken(
-               new AuthorizationCodeTokenRequest(
-                   "07d2f610371745aba056026392538495", "469e5c1e0ad64a42a77fe116099330f3", response.Code, new Uri("http://localhost:5543/callback")
-               )
-           );
+            //client ID goes in first field of AuthorizationCodeTokenRequest
+            //client secret goes in second field of AuthorizationCodeTokenRequest
+            var config = SpotifyClientConfig.CreateDefault();
+            var tokenResponse = await new OAuthClient(config).RequestToken(
+                new AuthorizationCodeTokenRequest(
+                    "07d2f610371745aba056026392538495", "469e5c1e0ad64a42a77fe116099330f3", response.Code, new Uri("http://localhost:5543/callback")
+                )
+            );
 
-           _spotify = new SpotifyClient(tokenResponse.AccessToken);
+            _spotify = new SpotifyClient(tokenResponse.AccessToken);
             // save token in _spotify
 
         }
