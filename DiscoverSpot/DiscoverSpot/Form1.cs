@@ -10,6 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Runtime.InteropServices;
+using System.IO;
 
 namespace DiscoverSpot
 {
@@ -23,24 +24,40 @@ namespace DiscoverSpot
 
        public static async Task InitializeSpotify()
        {
-            _server = new EmbedIOAuthServer(new Uri("http://localhost:5543/callback"), 5543);
-            await _server.Start();
-
-            _server.AuthorizationCodeReceived += OnAuthorizationCodeReceived;
-            _server.ErrorReceived += OnErrorReceived;
-            
-            //client ID goes in second field of LoginRequest
-            var request = new LoginRequest(_server.BaseUri, "07d2f610371745aba056026392538495", LoginRequest.ResponseType.Code)
+            string existingToken = "";
+            // Check if token was saved previously
+            if (File.Exists("access_token.txt"))
             {
-                Scope = new List<string> { 
-                    Scopes.UserTopRead, 
-                    Scopes.PlaylistModifyPrivate, 
-                    Scopes.PlaylistModifyPublic, 
-                    Scopes.UserReadEmail 
+                existingToken = File.ReadAllText("access_token.txt");
+            }
+
+            if (existingToken == "")
+            {
+                // No token, do authorization flow
+                _server = new EmbedIOAuthServer(new Uri("http://localhost:5543/callback"), 5543);
+                await _server.Start();
+
+                _server.AuthorizationCodeReceived += OnAuthorizationCodeReceived;
+                _server.ErrorReceived += OnErrorReceived;
+            
+                //client ID goes in second field of LoginRequest
+                var request = new LoginRequest(_server.BaseUri, "07d2f610371745aba056026392538495", LoginRequest.ResponseType.Code)
+                {
+                    Scope = new List<string> { 
+                    Scopes.UserTopRead,
+                    Scopes.PlaylistModifyPrivate,
+                    Scopes.PlaylistModifyPublic,
+                    Scopes.UserReadEmail
                 }
             };
 
-            BrowserUtil.Open(request.ToUri());
+                BrowserUtil.Open(request.ToUri());
+            }
+            else
+            {
+                // Reuse existing token
+                _spotify = new SpotifyClient(existingToken);
+            }
        }
 
        public static async Task OnAuthorizationCodeReceived(object sender, AuthorizationCodeResponse response)
@@ -55,9 +72,11 @@ namespace DiscoverSpot
                     "07d2f610371745aba056026392538495", "469e5c1e0ad64a42a77fe116099330f3", response.Code, new Uri("http://localhost:5543/callback")
                 )
             );
-
-            _spotify = new SpotifyClient(tokenResponse.AccessToken);
             // save token in _spotify
+            _spotify = new SpotifyClient(tokenResponse.AccessToken);
+            
+            // save token so user doesn't have to reauthenticate everytime
+            File.WriteAllText("access_token.txt", tokenResponse.AccessToken);
 
         }
 
