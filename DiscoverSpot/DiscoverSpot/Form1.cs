@@ -66,21 +66,37 @@ namespace DiscoverSpot
        {
            await _server.Stop();
        }
-       private async Task CreatePlaylist()
-       {
+        private async Task CreatePlaylist()
+        {
             var user = await _spotify.UserProfile.Current();
 
-            // Generate SpotDiscover playlist
-            var request = new PlaylistCreateRequest("SpotDiscover")
+            // Request song recommendations based on the seeds
+            var recommendations = await _spotify.Browse.GetRecommendations(new RecommendationsRequest()
+            {
+                // Need to figure out seeds for recommendations here
+                Limit = 30, // Adjust the limit as needed
+                Target =
+                {
+                    { "danceability", "0.8" } // Adjust the target danceability value as needed
+                }
+            });
+
+            // Create SpotDiscover playlist
+            var playlistRequest = new PlaylistCreateRequest("SpotDiscover")
             {
                 Description = "Daily Discovery Playlist",
                 Public = false
             };
 
-            var playlist = await _spotify.Playlists.Create(user.Id, request);
-       }
+            var createdPlaylist = await _spotify.Playlists.Create(user.Id, playlistRequest);
 
-       public async static Task GetTrack()
+            // Add recommended tracks to the playlist
+            var trackUris = recommendations.Tracks.Select(recommendedTrack => recommendedTrack.Uri).ToList();
+            await _spotify.Playlists.AddItems(createdPlaylist.Id, new PlaylistAddItemsRequest(trackUris));
+        }
+
+
+        public async static Task GetTrack()
        {
             // displays track "diskhat1"
             var track = await _spotify.Tracks.Get("1s6ux0lNiTziSrd7iUAADH");
