@@ -18,47 +18,34 @@ namespace DiscoverSpot
     {
        private static EmbedIOAuthServer _server;
        private static SpotifyClient _spotify;
+       private static bool _spotifyInitialized = false;
 
-       public static string _trackName;
+        public static string _trackName;
 
 
        public static async Task InitializeSpotify()
        {
-            string existingToken = "";
-            // Check if token was saved previously
-            if (File.Exists("access_token.txt"))
-            {
-                existingToken = File.ReadAllText("access_token.txt");
-            }
+            _server = new EmbedIOAuthServer(new Uri("http://localhost:5543/callback"), 5543);
+            await _server.Start();
 
-            if (existingToken == "")
-            {
-                // No token, do authorization flow
-                _server = new EmbedIOAuthServer(new Uri("http://localhost:5543/callback"), 5543);
-                await _server.Start();
-
-                _server.AuthorizationCodeReceived += OnAuthorizationCodeReceived;
-                _server.ErrorReceived += OnErrorReceived;
+            _server.AuthorizationCodeReceived += OnAuthorizationCodeReceived;
+            _server.ErrorReceived += OnErrorReceived;
             
-                //client ID goes in second field of LoginRequest
-                var request = new LoginRequest(_server.BaseUri, "07d2f610371745aba056026392538495", LoginRequest.ResponseType.Code)
-                {
-                    Scope = new List<string> { 
-                    Scopes.UserTopRead,
-                    Scopes.PlaylistModifyPrivate,
-                    Scopes.PlaylistModifyPublic,
-                    Scopes.UserReadEmail
+           //client ID goes in second field of LoginRequest
+          var request = new LoginRequest(_server.BaseUri, "07d2f610371745aba056026392538495", LoginRequest.ResponseType.Code)
+          {
+                Scope = new List<string> { 
+                Scopes.UserTopRead,
+                Scopes.PlaylistModifyPrivate,
+                Scopes.PlaylistModifyPublic,
+                Scopes.UserReadEmail
                 }
-            };
+          };
 
-                BrowserUtil.Open(request.ToUri());
-            }
-            else
-            {
-                // Reuse existing token
-                _spotify = new SpotifyClient(existingToken);
-            }
-       }
+            BrowserUtil.Open(request.ToUri());
+
+            
+        }
 
        public static async Task OnAuthorizationCodeReceived(object sender, AuthorizationCodeResponse response)
        {
@@ -74,10 +61,7 @@ namespace DiscoverSpot
             );
             // save token in _spotify
             _spotify = new SpotifyClient(tokenResponse.AccessToken);
-            
-            // save token so user doesn't have to reauthenticate everytime
-            File.WriteAllText("access_token.txt", tokenResponse.AccessToken);
-
+            _spotifyInitialized = true;
         }
 
        public static async Task OnErrorReceived(object sender, string error, string state)
@@ -114,13 +98,19 @@ namespace DiscoverSpot
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            
+
         }
 
         private async void Button1_Click(object sender, EventArgs e)
         {
             // Initialize Spotify when the button's clicked
             await InitializeSpotify();
+            // Check every 100 milliseconds if spotify has successfully initizaled before making api calls
+            while (!_spotifyInitialized)
+            {
+                await Task.Delay(100);
+            }
+            // Get user profile
             var user = await _spotify.UserProfile.Current();
             label3.Text = user.DisplayName;
             // Hide authenticate button
@@ -134,7 +124,7 @@ namespace DiscoverSpot
             // Show username label
             label3.Show();
         }
-        
+
         private async void button2_Click(object sender, EventArgs e)
         {
             await GetTrack();
