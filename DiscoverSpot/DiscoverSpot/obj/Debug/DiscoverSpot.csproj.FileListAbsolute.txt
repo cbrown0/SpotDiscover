@@ -88,7 +88,6 @@ C:\Users\gsmal\Source\Repos\CSC470MusicDiscovery\DiscoverSpot\DiscoverSpot\bin\D
 C:\Users\gsmal\Source\Repos\CSC470MusicDiscovery\DiscoverSpot\DiscoverSpot\bin\Debug\Swan.Lite.xml
 C:\Users\gsmal\Source\Repos\CSC470MusicDiscovery\DiscoverSpot\DiscoverSpot\bin\Debug\System.ValueTuple.xml
 C:\Users\gsmal\Source\Repos\CSC470MusicDiscovery\DiscoverSpot\DiscoverSpot\obj\Debug\DiscoverSpot.csproj.AssemblyReference.cache
-C:\Users\gsmal\Source\Repos\CSC470MusicDiscovery\DiscoverSpot\DiscoverSpot\obj\Debug\DiscoverSpot.Form1.resources
 C:\Users\gsmal\Source\Repos\CSC470MusicDiscovery\DiscoverSpot\DiscoverSpot\obj\Debug\DiscoverSpot.Properties.Resources.resources
 C:\Users\gsmal\Source\Repos\CSC470MusicDiscovery\DiscoverSpot\DiscoverSpot\obj\Debug\DiscoverSpot.csproj.GenerateResource.cache
 C:\Users\gsmal\Source\Repos\CSC470MusicDiscovery\DiscoverSpot\DiscoverSpot\obj\Debug\DiscoverSpot.csproj.CoreCompileInputs.cache
@@ -96,3 +95,4 @@ C:\Users\gsmal\Source\Repos\CSC470MusicDiscovery\DiscoverSpot\DiscoverSpot\obj\D
 C:\Users\gsmal\Source\Repos\CSC470MusicDiscovery\DiscoverSpot\DiscoverSpot\obj\Debug\DiscoverSpot.exe
 C:\Users\gsmal\Source\Repos\CSC470MusicDiscovery\DiscoverSpot\DiscoverSpot\obj\Debug\DiscoverSpot.pdb
 C:\Users\gsmal\source\repos\CSC470MusicDiscovery\DiscoverSpot\DiscoverSpot\obj\Debug\DiscoverSpot.Form2.resources
+C:\Users\gsmal\source\repos\CSC470MusicDiscovery\DiscoverSpot\DiscoverSpot\obj\Debug\DiscoverSpot.MainForm.resources

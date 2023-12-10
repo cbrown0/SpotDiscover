@@ -12,9 +12,12 @@ namespace DiscoverSpot
 {
     public partial class Form2 : Form
     {
-        public Form2()
+        spotifyManager _spotifyManager;
+
+        public Form2(spotifyManager spotifyManager)
         {
             InitializeComponent();
+            _spotifyManager = spotifyManager;
         }
 
         private void DancibilityBar_Scroll(object sender, EventArgs e)
