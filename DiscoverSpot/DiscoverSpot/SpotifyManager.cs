@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Timers;
 
 namespace DiscoverSpot
 {
@@ -17,6 +18,9 @@ namespace DiscoverSpot
         private string _trackID;
         private SpotifyAPI.Web.PrivateUser _user;
         private RecommendationsRequest _recommendationData;
+        private System.Timers.Timer _playlistTimer;
+        private FullPlaylist createdPlaylist;
+        private List<string> trackUris;
 
         private bool _considerGenre = false;
         private bool _considerArtist = false;
@@ -42,6 +46,23 @@ namespace DiscoverSpot
                     "7EZC6E7UjZe63f1jRmkWxt" // The Cranberries "Zombie" because I needed a default value and happened to be listening to it
                 }
             };
+        }
+
+        public async void PlaylistTimer_Elapsed(object sender, ElapsedEventArgs e)
+        {
+            await RefreshPlaylist();
+        }
+
+        public async Task RefreshPlaylist()
+        {
+            System.Diagnostics.Debug.WriteLine("Test\n");
+
+            // Request song recommendations based on the seeds
+            var recommendations = await _spotify.Browse.GetRecommendations(_recommendationData);
+
+            // Add recommended tracks to the playlist
+            trackUris = recommendations.Tracks.Select(recommendedTrack => recommendedTrack.Uri).ToList();
+            await _spotify.Playlists.ReplaceItems(createdPlaylist.Id, new PlaylistReplaceItemsRequest(trackUris));
         }
 
         public bool IsInitialized()
@@ -183,11 +204,17 @@ namespace DiscoverSpot
                 Public = false
             };
 
-            var createdPlaylist = await _spotify.Playlists.Create(user.Id, playlistRequest);
+            createdPlaylist = await _spotify.Playlists.Create(user.Id, playlistRequest);
 
             // Add recommended tracks to the playlist
-            var trackUris = recommendations.Tracks.Select(recommendedTrack => recommendedTrack.Uri).ToList();
+            trackUris = recommendations.Tracks.Select(recommendedTrack => recommendedTrack.Uri).ToList();
             await _spotify.Playlists.AddItems(createdPlaylist.Id, new PlaylistAddItemsRequest(trackUris));
+
+            // 24 hour timer
+            _playlistTimer = new System.Timers.Timer(60 * 60 * 1000 * 24);
+            // Refresh playlist after set time only works if program is left open
+            _playlistTimer.Elapsed += PlaylistTimer_Elapsed;
+            _playlistTimer.Enabled = true;
         }
 
     }
