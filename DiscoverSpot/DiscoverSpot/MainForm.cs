@@ -56,6 +56,11 @@ namespace DiscoverSpot
             //System.Diagnostics.Debug.WriteLine(string.Join("", topArtists.ToList()));
             _spotifyManager.setRecommendationSeeds(artistIds: string.Join(",", topArtists), trackIds: string.Join(",", topTracks));
             await _spotifyManager.CreatePlaylist();
+            Button_RefreshPlaylist.Show();
+            // Button changes text indicating successfuly playlist creation
+            Button_GeneratePlaylist.Text = "Success!";
+            await Task.Delay(5000);
+            Button_GeneratePlaylist.Text = "Generate Playlist";
         }
 
        private void ButtonConfigure_Click(object sender, EventArgs e)
@@ -63,5 +68,10 @@ namespace DiscoverSpot
             ConfigurationForm Configuration_form = new ConfigurationForm(_spotifyManager);
             Configuration_form.Show();
        }
+
+        private async void Button_RefreshPlaylist_Click(object sender, EventArgs e)
+        {
+            await _spotifyManager.RefreshPlaylist();
+        }
     }
 }

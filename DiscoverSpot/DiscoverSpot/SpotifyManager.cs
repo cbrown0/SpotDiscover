@@ -46,7 +46,7 @@ namespace DiscoverSpot
 
         public async Task RefreshPlaylist()
         {
-            System.Diagnostics.Debug.WriteLine("Test\n");
+            System.Diagnostics.Debug.WriteLine("Refresh\n");
 
             // Request song recommendations based on the seeds
             var recommendations = await _spotify.Browse.GetRecommendations(_recommendationData);
