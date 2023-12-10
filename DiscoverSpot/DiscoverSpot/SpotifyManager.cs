@@ -24,6 +24,7 @@ namespace DiscoverSpot
 
         private bool _considerArtist = false;
         private string _danceability = "0.8";
+        private string _artistweight = "0";
 
         public spotifyManager()
         {
@@ -72,20 +73,20 @@ namespace DiscoverSpot
         }
 
         // data used later when generating tracks, set by configure form
-        public void setConfigurationData(bool considerArtist, string danceability)
+        public void setConfigurationData(string danceability, string artistweight)
         {
-            _considerArtist = considerArtist;
             _danceability = danceability;
-        }
-
-        public bool IsConsideringArtist()
-        {
-            return _considerArtist;
+            _artistweight = artistweight;
         }
 
         public string getDanceability()
         {
             return _danceability;
+        }
+
+        public string getArtistWeight()
+        {
+            return _artistweight;
         }
 
         public void setRecommendationSeeds(string trackIds = null, string artistIds = null)
@@ -190,10 +191,12 @@ namespace DiscoverSpot
 
         public async Task<List<string>> GetTopArtist()
         {
-            // Grab top 5 artists within the past month
+            int artistweight = Int32.Parse(_artistweight);
+
+            // Grab top artists within the past month
             var artistRequest = new PersonalizationTopRequest()
             {
-                Limit = 1,
+                Limit = artistweight,
                 Offset = 0,
                 TimeRangeParam = PersonalizationTopRequest.TimeRange.ShortTerm
             };
@@ -203,10 +206,12 @@ namespace DiscoverSpot
         }
         public async Task<List<string>> GetTopTrack()
         {
-            // Grab top 5 tracks within the past month
+            int trackweight = 5 - Int32.Parse(_artistweight);
+
+            // Grab top tracks within the past month
             var trackRequest = new PersonalizationTopRequest()
             {
-                Limit = 4,
+                Limit = trackweight,
                 Offset = 0,
                 TimeRangeParam = PersonalizationTopRequest.TimeRange.ShortTerm
             };
