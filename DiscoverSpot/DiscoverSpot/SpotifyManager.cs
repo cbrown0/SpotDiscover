@@ -37,14 +37,15 @@ namespace DiscoverSpot
                 {
                     { "danceability", "0.8" } // Adjust the target danceability value as needed
                 },
-                SeedGenres =
+                // Commented out just so it doesn't interfere with top seeded artists
+                /*SeedGenres =
                 {
                     "acoustic"
                 },
                 SeedTracks =
                 {
                     "7EZC6E7UjZe63f1jRmkWxt" // The Cranberries "Zombie" because I needed a default value and happened to be listening to it
-                }
+                }*/
             };
         }
 
@@ -112,26 +113,23 @@ namespace DiscoverSpot
             return _danceability;
         }
 
-        public void setRecommendationSeeds(List<string> tracks = null, List<string> genres = null, List<string> artists = null)
+        public void setRecommendationSeeds(List<string> tracks = null, List<string> genres = null, string artistIds = null)
         {
-            string genreString = "", trackString = "", artistString = "";
+            string artistString = artistIds;
 
-            if(tracks == null)
+            if (tracks == null && artistIds == null && genres == null)
             {
-                MessageBox.Show("Seed values set without Tracks", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("At least one seed must be set from tracks, artists, or genres", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-
-            trackString = tracks.Aggregate((a, x) => a + "," + x);
-            if (genres != null && _considerGenre) genreString = genres.Aggregate((a, x) => a + "," + x);
-            if(artists != null && _considerArtist) artistString = artists.Aggregate((a, x) => a + "," + x);
-
+            //if (genres != null && _considerGenre) genreString = genres.Aggregate((a, x) => a + "," + x);
+            //if(artists != null && _considerArtist) artistString = artists.Aggregate((a, x) => a + "," + x);
             _recommendationData = new RecommendationsRequest()
             {
                 Limit = 30,
                 Target = { { "danceability", _danceability } },
-                SeedGenres = {genreString},
+                //SeedGenres = {genreString},
                 SeedArtists = {artistString},
-                SeedTracks = {trackString}
+                //SeedTracks = {trackString}
             };
         }
 
@@ -217,5 +215,18 @@ namespace DiscoverSpot
             _playlistTimer.Enabled = true;
         }
 
+        public async Task<List<string>> GetTopArtist()
+        {
+            // Grab top 5 artists within the past month
+            var artistRequest = new PersonalizationTopRequest()
+            {
+                Limit = 5,
+                Offset = 0,
+                TimeRangeParam = PersonalizationTopRequest.TimeRange.ShortTerm
+            };
+            var topArtists = await _spotify.Personalization.GetTopArtists(artistRequest);
+            // Return only the IDs not the full URI
+            return topArtists.Items.Select(a => a.Id).ToList();
+        }
     }
 }

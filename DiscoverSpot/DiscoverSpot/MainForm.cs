@@ -56,12 +56,14 @@ namespace DiscoverSpot
             label1.Text = _spotifyManager.getTrackID();
        }
 
-       private async void ButtonGeneratePlaylist_Click(object sender, EventArgs e)
-       {
-            // TODO, make this change based on some tracks pulled from the user...
-            //_spotifyManager.setRecommendationSeeds(tracks: new List<string>() { "7EZC6E7UjZe63f1jRmkWxt" });
+        private async void ButtonGeneratePlaylist_Click(object sender, EventArgs e)
+        {
+            var topArtists = await _spotifyManager.GetTopArtist();
+            //System.Diagnostics.Debug.WriteLine(string.Join("", topArtists.ToList()));
+            // TODO, make this change based on some tracks and artists pulled from the user...
+            _spotifyManager.setRecommendationSeeds(artistIds: string.Join(",", topArtists));
             await _spotifyManager.CreatePlaylist();
-       }
+        }
 
        private void ButtonConfigure_Click(object sender, EventArgs e)
        {
