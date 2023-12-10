@@ -78,8 +78,14 @@ namespace DiscoverSpot
                 Target =
                 {
                     { "danceability", "0.8" } // Adjust the target danceability value as needed
+                },
+                SeedGenres =
+                {
+                    "soundtracks"
                 }
             });
+
+            System.Diagnostics.Debug.WriteLine(string.Join(",\n",recommendations.Tracks.Select(track => track.Name).ToList()));
 
             // Create SpotDiscover playlist
             var playlistRequest = new PlaylistCreateRequest("SpotDiscover")
@@ -88,11 +94,11 @@ namespace DiscoverSpot
                 Public = false
             };
 
-            var createdPlaylist = await _spotify.Playlists.Create(user.Id, playlistRequest);
+            //var createdPlaylist = await _spotify.Playlists.Create(user.Id, playlistRequest);
 
-            // Add recommended tracks to the playlist
-            var trackUris = recommendations.Tracks.Select(recommendedTrack => recommendedTrack.Uri).ToList();
-            await _spotify.Playlists.AddItems(createdPlaylist.Id, new PlaylistAddItemsRequest(trackUris));
+            //// Add recommended tracks to the playlist
+            //var trackUris = recommendations.Tracks.Select(recommendedTrack => recommendedTrack.Uri).ToList();
+            //await _spotify.Playlists.AddItems(createdPlaylist.Id, new PlaylistAddItemsRequest(trackUris));
         }
 
 
@@ -107,7 +113,6 @@ namespace DiscoverSpot
        public Form1()
        {
             InitializeComponent();
-            button2.Hide();
        }
 
        private void Form1_Load(object sender, EventArgs e)
@@ -115,44 +120,44 @@ namespace DiscoverSpot
 
        }
 
-       private async void Button1_Click(object sender, EventArgs e)
+       private async void ButtonAuth_Click(object sender, EventArgs e)
        {
             // Initialize Spotify when the button's clicked
             await InitializeSpotify();
+
             // Check every 100 milliseconds if spotify has successfully initizaled before making api calls
             while (!_spotifyInitialized)
             {
                 await Task.Delay(100);
             }
+
             // Get user profile
             var user = await _spotify.UserProfile.Current();
-            label3.Text = user.DisplayName;
-            // Hide authenticate button
-            button1.Hide();
-            // Show Display Track button
-            button2.Show();
-            // Show generate Playlist button
-            button3.Show();
-            // Show currently signed in label
-            label2.Show();
-            // Show username label
-            label3.Show();
+            Label_Username.Text = user.DisplayName;
+
+            Button_Authenticate.Hide();
+            Button_displayTrack.Show();
+            Button_GeneratePlaylist.Show();
+            Label_SignedInAs.Show();
+            Label_Username.Show();
+            Button_configure.Show();
        }
 
-       private async void button2_Click(object sender, EventArgs e)
+       private async void ButtonDisplayTrack_Click(object sender, EventArgs e)
        {
             await GetTrack();
             label1.Text = _trackName;
        }
 
-       private async void button3_Click(object sender, EventArgs e)
+       private async void ButtonGeneratePlaylist_Click(object sender, EventArgs e)
        {
             await CreatePlaylist();
        }
 
-       private void label3_Click(object sender, EventArgs e)
-       {
-
-       }
+        private void ButtonConfigure_Click(object sender, EventArgs e)
+        {
+            Form2 Configuration_form = new Form2();
+            Configuration_form.Show();
+        }
     }
 }
