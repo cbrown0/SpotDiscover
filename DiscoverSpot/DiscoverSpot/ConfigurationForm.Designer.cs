@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.genreCheckBox = new System.Windows.Forms.CheckBox();
             this.artistsCheckBox = new System.Windows.Forms.CheckBox();
             this.DanceabilityBar = new System.Windows.Forms.TrackBar();
             this.Label_Dancability = new System.Windows.Forms.Label();
@@ -36,18 +35,6 @@
             this.Label_DanceabilityNumber = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.DanceabilityBar)).BeginInit();
             this.SuspendLayout();
-            // 
-            // genreCheckBox
-            // 
-            this.genreCheckBox.AutoSize = true;
-            this.genreCheckBox.Location = new System.Drawing.Point(196, 15);
-            this.genreCheckBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.genreCheckBox.Name = "genreCheckBox";
-            this.genreCheckBox.Size = new System.Drawing.Size(104, 20);
-            this.genreCheckBox.TabIndex = 0;
-            this.genreCheckBox.Text = "Inherit Genre";
-            this.genreCheckBox.UseVisualStyleBackColor = true;
-            this.genreCheckBox.CheckedChanged += new System.EventHandler(this.genereCheckBox_CheckedChanged);
             // 
             // artistsCheckBox
             // 
@@ -110,7 +97,6 @@
             this.Controls.Add(this.Label_Dancability);
             this.Controls.Add(this.DanceabilityBar);
             this.Controls.Add(this.artistsCheckBox);
-            this.Controls.Add(this.genreCheckBox);
             this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "ConfigurationForm";
             this.Text = "Configure";
@@ -123,7 +109,6 @@
 
         #endregion
 
-        private System.Windows.Forms.CheckBox genreCheckBox;
         private System.Windows.Forms.CheckBox artistsCheckBox;
         private System.Windows.Forms.TrackBar DanceabilityBar;
         private System.Windows.Forms.Label Label_Dancability;

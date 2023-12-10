@@ -22,7 +22,6 @@ namespace DiscoverSpot
         private FullPlaylist createdPlaylist;
         private List<string> trackUris;
 
-        private bool _considerGenre = false;
         private bool _considerArtist = false;
         private string _danceability = "0.8";
 
@@ -36,16 +35,7 @@ namespace DiscoverSpot
                 Target =
                 {
                     { "danceability", "0.8" } // Adjust the target danceability value as needed
-                },
-                // Commented out just so it doesn't interfere with top seeded artists
-                /*SeedGenres =
-                {
-                    "acoustic"
-                },
-                SeedTracks =
-                {
-                    "7EZC6E7UjZe63f1jRmkWxt" // The Cranberries "Zombie" because I needed a default value and happened to be listening to it
-                }*/
+                }
             };
         }
 
@@ -76,25 +66,15 @@ namespace DiscoverSpot
             return _user.DisplayName;
         }
 
-        public async Task GetTrack()
-        {
-            // displays track "diskhat1"
-            // TODO: get from top items
-            var track = await _spotify.Tracks.Get("1s6ux0lNiTziSrd7iUAADH");
-
-            _trackID = track.Id;
-        }
-
         public string getTrackID()
         {
             return _trackID;
         }
 
         // data used later when generating tracks, set by configure form
-        public void setConfigurationData(bool considerArtist, bool considerGenre, string danceability)
+        public void setConfigurationData(bool considerArtist, string danceability)
         {
             _considerArtist = considerArtist;
-            _considerGenre = considerGenre;
             _danceability = danceability;
         }
 
@@ -103,31 +83,24 @@ namespace DiscoverSpot
             return _considerArtist;
         }
 
-        public bool IsConsideringGenre()
-        {
-            return _considerGenre;
-        }
-
         public string getDanceability()
         {
             return _danceability;
         }
 
-        public void setRecommendationSeeds(string trackIds = null, string genres = null, string artistIds = null)
+        public void setRecommendationSeeds(string trackIds = null, string artistIds = null)
         {
             string artistString = artistIds;
             string trackString = trackIds;
-            if (trackIds == null && artistIds == null && genres == null)
+            if (trackIds == null && artistIds == null)
             {
-                MessageBox.Show("At least one seed must be set from tracks, artists, or genres", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("At least one seed must be set from tracks or artists", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            //if (genres != null && _considerGenre) genreString = genres.Aggregate((a, x) => a + "," + x);
             //if(artists != null && _considerArtist) artistString = artists.Aggregate((a, x) => a + "," + x);
             _recommendationData = new RecommendationsRequest()
             {
                 Limit = 30,
                 Target = { { "danceability", _danceability } },
-                //SeedGenres = {genreString},
                 SeedArtists = {artistString},
                 SeedTracks = {trackString}
             };
@@ -220,7 +193,7 @@ namespace DiscoverSpot
             // Grab top 5 artists within the past month
             var artistRequest = new PersonalizationTopRequest()
             {
-                Limit = 2,
+                Limit = 1,
                 Offset = 0,
                 TimeRangeParam = PersonalizationTopRequest.TimeRange.ShortTerm
             };
@@ -233,7 +206,7 @@ namespace DiscoverSpot
             // Grab top 5 tracks within the past month
             var trackRequest = new PersonalizationTopRequest()
             {
-                Limit = 3,
+                Limit = 4,
                 Offset = 0,
                 TimeRangeParam = PersonalizationTopRequest.TimeRange.ShortTerm
             };

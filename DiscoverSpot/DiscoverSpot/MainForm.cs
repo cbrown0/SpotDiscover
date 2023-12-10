@@ -49,13 +49,6 @@ namespace DiscoverSpot
             Button_configure.Show();
        }
 
-        // DEPRECATED (button was removed)
-       private async void ButtonDisplayTrack_Click(object sender, EventArgs e)
-       {
-            await _spotifyManager.GetTrack();
-            label1.Text = _spotifyManager.getTrackID();
-       }
-
         private async void ButtonGeneratePlaylist_Click(object sender, EventArgs e)
         {
             var topArtists = await _spotifyManager.GetTopArtist();
