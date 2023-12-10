@@ -49,7 +49,7 @@ namespace DiscoverSpot
             Button_configure.Show();
        }
 
-        // DEPRICATED (button was removed)
+        // DEPRECATED (button was removed)
        private async void ButtonDisplayTrack_Click(object sender, EventArgs e)
        {
             await _spotifyManager.GetTrack();
@@ -59,7 +59,7 @@ namespace DiscoverSpot
        private async void ButtonGeneratePlaylist_Click(object sender, EventArgs e)
        {
             // TODO, make this change based on some tracks pulled from the user...
-            //_spotifyManager.setReccomendationSeeds(tracks: new List<string>() { "7EZC6E7UjZe63f1jRmkWxt" });
+            //_spotifyManager.setRecommendationSeeds(tracks: new List<string>() { "7EZC6E7UjZe63f1jRmkWxt" });
             await _spotifyManager.CreatePlaylist();
        }
 

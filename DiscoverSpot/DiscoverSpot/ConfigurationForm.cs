@@ -24,21 +24,21 @@ namespace DiscoverSpot
         private void ConfigurationForm_Load(object sender, EventArgs e)
         {
             // makes form display accurate data when it first opens
-            Label_DancabilityNumber.Text = _spotifyManager.getDancability();
-            DancibilityBar.Value = (int) (Convert.ToDouble(_spotifyManager.getDancability()) * 10);
-            genereCheckBox.Checked = _spotifyManager.IsConsideringGenere();
+            Label_DanceabilityNumber.Text = _spotifyManager.getDanceability();
+            DanceabilityBar.Value = (int) (Convert.ToDouble(_spotifyManager.getDanceability()) * 10);
+            genreCheckBox.Checked = _spotifyManager.IsConsideringGenre();
             artistsCheckBox.Checked = _spotifyManager.IsConsideringArtist();
         }
 
-        private void DancibilityBar_Scroll(object sender, EventArgs e)
+        private void DanceabilityBar_Scroll(object sender, EventArgs e)
         {
-            Label_DancabilityNumber.Text = ((double) DancibilityBar.Value/10).ToString();
+            Label_DanceabilityNumber.Text = ((double) DanceabilityBar.Value/10).ToString();
             PushFormData();
         }
 
         private void PushFormData()
         {
-            _spotifyManager.setConfigurationData(artistsCheckBox.Checked, genereCheckBox.Checked, Label_DancabilityNumber.Text);
+            _spotifyManager.setConfigurationData(artistsCheckBox.Checked, genreCheckBox.Checked, Label_DanceabilityNumber.Text);
         }
 
         private void genereCheckBox_CheckedChanged(object sender, EventArgs e)
