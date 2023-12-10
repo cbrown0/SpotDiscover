@@ -30,7 +30,6 @@
         {
             this.Button_Authenticate = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.Button_displayTrack = new System.Windows.Forms.Button();
             this.Button_GeneratePlaylist = new System.Windows.Forms.Button();
             this.Label_SignedInAs = new System.Windows.Forms.Label();
             this.Label_Username = new System.Windows.Forms.Label();
@@ -61,23 +60,9 @@
             this.label1.TabIndex = 1;
             this.label1.Text = "SpotDiscover";
             // 
-            // Button_displayTrack
-            // 
-            this.Button_displayTrack.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.Button_displayTrack.Location = new System.Drawing.Point(247, 163);
-            this.Button_displayTrack.Name = "Button_displayTrack";
-            this.Button_displayTrack.Size = new System.Drawing.Size(246, 85);
-            this.Button_displayTrack.TabIndex = 2;
-            this.Button_displayTrack.Text = "Display Track";
-            this.Button_displayTrack.UseVisualStyleBackColor = true;
-            this.Button_displayTrack.Visible = false;
-            this.Button_displayTrack.Click += new System.EventHandler(this.ButtonDisplayTrack_Click);
-            // 
             // Button_GeneratePlaylist
             // 
-            this.Button_GeneratePlaylist.Location = new System.Drawing.Point(247, 305);
+            this.Button_GeneratePlaylist.Location = new System.Drawing.Point(247, 163);
             this.Button_GeneratePlaylist.Margin = new System.Windows.Forms.Padding(2);
             this.Button_GeneratePlaylist.Name = "Button_GeneratePlaylist";
             this.Button_GeneratePlaylist.Size = new System.Drawing.Size(246, 85);
@@ -131,7 +116,6 @@
             this.Controls.Add(this.Label_Username);
             this.Controls.Add(this.Label_SignedInAs);
             this.Controls.Add(this.Button_GeneratePlaylist);
-            this.Controls.Add(this.Button_displayTrack);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.Button_Authenticate);
             this.Name = "MainForm";
@@ -146,7 +130,6 @@
 
         private System.Windows.Forms.Button Button_Authenticate;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button Button_displayTrack;
         private System.Windows.Forms.Button Button_GeneratePlaylist;
         private System.Windows.Forms.Label Label_SignedInAs;
         private System.Windows.Forms.Label Label_Username;

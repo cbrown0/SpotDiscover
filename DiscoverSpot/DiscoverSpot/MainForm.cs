@@ -43,13 +43,13 @@ namespace DiscoverSpot
             Label_Username.Text = _spotifyManager.getUserName();
 
             Button_Authenticate.Hide();
-            Button_displayTrack.Show();
             Button_GeneratePlaylist.Show();
             Label_SignedInAs.Show();
             Label_Username.Show();
             Button_configure.Show();
        }
 
+        // DEPRICATED (button was removed)
        private async void ButtonDisplayTrack_Click(object sender, EventArgs e)
        {
             await _spotifyManager.GetTrack();
@@ -58,12 +58,14 @@ namespace DiscoverSpot
 
        private async void ButtonGeneratePlaylist_Click(object sender, EventArgs e)
        {
+            // TODO, make this change based on some tracks pulled from the user...
+            //_spotifyManager.setReccomendationSeeds(tracks: new List<string>() { "7EZC6E7UjZe63f1jRmkWxt" });
             await _spotifyManager.CreatePlaylist();
        }
 
        private void ButtonConfigure_Click(object sender, EventArgs e)
        {
-            Form2 Configuration_form = new Form2(_spotifyManager);
+            ConfigurationForm Configuration_form = new ConfigurationForm(_spotifyManager);
             Configuration_form.Show();
        }
     }

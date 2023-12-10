@@ -5,35 +5,43 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace DiscoverSpot
 {
     public class spotifyManager
     {
-        private struct RecommendationData
-        {
-            public double dancability;
-            public List<string> artists;
-            public List<string> genres;
-            public List<string> tracks;
-        }
-
         private static EmbedIOAuthServer _server;
         private static SpotifyClient _spotify;
         private static bool _spotifyInitialized = false;
         private string _trackName;
         private SpotifyAPI.Web.PrivateUser _user;
-        private RecommendationData _recommendationData;
+        private RecommendationsRequest _recommendationData;
+
+        private bool _considerGenre = false;
+        private bool _considerArtist = false;
+        private string _dancability = "0.8";
 
         public spotifyManager()
         {
 
             // initial values for everything... even if empty, just in case
-            _recommendationData = new RecommendationData();
-            _recommendationData.dancability = 0.8;
-            _recommendationData.artists = new List<string>();
-            _recommendationData.genres = new List<string>();
-            _recommendationData.tracks = new List<string>(); 
+            _recommendationData = new RecommendationsRequest()
+            {
+                Limit = 30, // Adjust the limit as needed
+                Target =
+                {
+                    { "danceability", "0.8" } // Adjust the target danceability value as needed
+                },
+                SeedGenres =
+                {
+                    "acoustic"
+                },
+                SeedTracks =
+                {
+                    "7EZC6E7UjZe63f1jRmkWxt" // The Cranberries "Zombie" because I needed a default value and happened to be listening to it
+                }
+            };
         }
 
         public bool IsInitialized()
@@ -49,6 +57,52 @@ namespace DiscoverSpot
         public string getTrackName()
         {
             return _trackName;
+        }
+
+        // data used later when generating tracks, set by configure form
+        public void setConfigurationData(bool considerArtist, bool considerGenre, string dancability)
+        {
+            _considerArtist = considerArtist;
+            _considerGenre = considerGenre;
+            _dancability = dancability;
+        }
+
+        public bool IsConsideringArtist()
+        {
+            return _considerArtist;
+        }
+
+        public bool IsConsideringGenere()
+        {
+            return _considerGenre;
+        }
+
+        public string getDancability()
+        {
+            return _dancability;
+        }
+
+        public void setReccomendationSeeds(List<string> tracks = null, List<string> generes = null, List<string> artists = null)
+        {
+            string genereString = "", trackString = "", artistString = "";
+
+            if(tracks == null)
+            {
+                MessageBox.Show("Seed values set without Tracks", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+            trackString = tracks.Aggregate((a, x) => a + "," + x);
+            if (generes != null && _considerGenre) genereString = generes.Aggregate((a, x) => a + "," + x);
+            if(artists != null && _considerArtist) artistString = artists.Aggregate((a, x) => a + "," + x);
+
+            _recommendationData = new RecommendationsRequest()
+            {
+                Limit = 30,
+                Target = { { "danceability", _dancability } },
+                SeedGenres = {genereString},
+                SeedArtists = {artistString},
+                SeedTracks = {trackString}
+            };
         }
 
         public async Task InitializeSpotify()
@@ -108,19 +162,7 @@ namespace DiscoverSpot
             var user = await _spotify.UserProfile.Current();
 
             // Request song recommendations based on the seeds
-            var recommendations = await _spotify.Browse.GetRecommendations(new RecommendationsRequest()
-            {
-                // Need to figure out seeds for recommendations here
-                Limit = 30, // Adjust the limit as needed
-                Target =
-                {
-                    { "danceability", _recommendationData.dancability.ToString() } // Adjust the target danceability value as needed
-                },
-                SeedGenres =
-                {
-                    "acoustic"
-                }
-            });
+            var recommendations = await _spotify.Browse.GetRecommendations(_recommendationData);
 
             System.Diagnostics.Debug.WriteLine(string.Join(",\n", recommendations.Tracks.Select(track => track.Name).ToList()));
 

@@ -94,5 +94,5 @@ C:\Users\gsmal\Source\Repos\CSC470MusicDiscovery\DiscoverSpot\DiscoverSpot\obj\D
 C:\Users\gsmal\Source\Repos\CSC470MusicDiscovery\DiscoverSpot\DiscoverSpot\obj\Debug\DiscoverSpot.csproj.CopyComplete
 C:\Users\gsmal\Source\Repos\CSC470MusicDiscovery\DiscoverSpot\DiscoverSpot\obj\Debug\DiscoverSpot.exe
 C:\Users\gsmal\Source\Repos\CSC470MusicDiscovery\DiscoverSpot\DiscoverSpot\obj\Debug\DiscoverSpot.pdb
-C:\Users\gsmal\source\repos\CSC470MusicDiscovery\DiscoverSpot\DiscoverSpot\obj\Debug\DiscoverSpot.Form2.resources
 C:\Users\gsmal\source\repos\CSC470MusicDiscovery\DiscoverSpot\DiscoverSpot\obj\Debug\DiscoverSpot.MainForm.resources
+C:\Users\gsmal\source\repos\CSC470MusicDiscovery\DiscoverSpot\DiscoverSpot\obj\Debug\DiscoverSpot.ConfigurationForm.resources

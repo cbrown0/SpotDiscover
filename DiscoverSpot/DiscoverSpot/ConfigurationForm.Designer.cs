@@ -1,6 +1,6 @@
 ﻿namespace DiscoverSpot
 {
-    partial class Form2
+    partial class ConfigurationForm
     {
         /// <summary>
         /// Required designer variable.
@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
-            this.checkBox2 = new System.Windows.Forms.CheckBox();
+            this.genereCheckBox = new System.Windows.Forms.CheckBox();
+            this.artistsCheckBox = new System.Windows.Forms.CheckBox();
             this.DancibilityBar = new System.Windows.Forms.TrackBar();
             this.Label_Dancability = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -37,25 +37,27 @@
             ((System.ComponentModel.ISupportInitialize)(this.DancibilityBar)).BeginInit();
             this.SuspendLayout();
             // 
-            // checkBox1
+            // genereCheckBox
             // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(147, 12);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(87, 17);
-            this.checkBox1.TabIndex = 0;
-            this.checkBox1.Text = "Inherit Genre";
-            this.checkBox1.UseVisualStyleBackColor = true;
+            this.genereCheckBox.AutoSize = true;
+            this.genereCheckBox.Location = new System.Drawing.Point(147, 12);
+            this.genereCheckBox.Name = "genereCheckBox";
+            this.genereCheckBox.Size = new System.Drawing.Size(87, 17);
+            this.genereCheckBox.TabIndex = 0;
+            this.genereCheckBox.Text = "Inherit Genre";
+            this.genereCheckBox.UseVisualStyleBackColor = true;
+            this.genereCheckBox.CheckedChanged += new System.EventHandler(this.genereCheckBox_CheckedChanged);
             // 
-            // checkBox2
+            // artistsCheckBox
             // 
-            this.checkBox2.AutoSize = true;
-            this.checkBox2.Location = new System.Drawing.Point(147, 35);
-            this.checkBox2.Name = "checkBox2";
-            this.checkBox2.Size = new System.Drawing.Size(86, 17);
-            this.checkBox2.TabIndex = 1;
-            this.checkBox2.Text = "Inherit Artists";
-            this.checkBox2.UseVisualStyleBackColor = true;
+            this.artistsCheckBox.AutoSize = true;
+            this.artistsCheckBox.Location = new System.Drawing.Point(147, 35);
+            this.artistsCheckBox.Name = "artistsCheckBox";
+            this.artistsCheckBox.Size = new System.Drawing.Size(86, 17);
+            this.artistsCheckBox.TabIndex = 1;
+            this.artistsCheckBox.Text = "Inherit Artists";
+            this.artistsCheckBox.UseVisualStyleBackColor = true;
+            this.artistsCheckBox.CheckedChanged += new System.EventHandler(this.artistsCheckBox_CheckedChanged);
             // 
             // DancibilityBar
             // 
@@ -101,10 +103,11 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.Label_Dancability);
             this.Controls.Add(this.DancibilityBar);
-            this.Controls.Add(this.checkBox2);
-            this.Controls.Add(this.checkBox1);
+            this.Controls.Add(this.artistsCheckBox);
+            this.Controls.Add(this.genereCheckBox);
             this.Name = "Form2";
             this.Text = "Configure";
+            this.Load += new System.EventHandler(this.ConfigurationForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.DancibilityBar)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -113,8 +116,8 @@
 
         #endregion
 
-        private System.Windows.Forms.CheckBox checkBox1;
-        private System.Windows.Forms.CheckBox checkBox2;
+        private System.Windows.Forms.CheckBox genereCheckBox;
+        private System.Windows.Forms.CheckBox artistsCheckBox;
         private System.Windows.Forms.TrackBar DancibilityBar;
         private System.Windows.Forms.Label Label_Dancability;
         private System.Windows.Forms.Label label2;
