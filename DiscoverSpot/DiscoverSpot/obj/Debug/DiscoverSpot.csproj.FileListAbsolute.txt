@@ -64,7 +64,6 @@ C:\Users\DSU Student\Source\Repos\CSC470MusicDiscovery\DiscoverSpot\DiscoverSpot
 C:\Users\DSU Student\Source\Repos\CSC470MusicDiscovery\DiscoverSpot\DiscoverSpot\bin\Debug\System.ValueTuple.xml
 C:\Users\DSU Student\Source\Repos\CSC470MusicDiscovery\DiscoverSpot\DiscoverSpot\obj\Debug\DiscoverSpot.csproj.AssemblyReference.cache
 C:\Users\DSU Student\Source\Repos\CSC470MusicDiscovery\DiscoverSpot\DiscoverSpot\obj\Debug\DiscoverSpot.csproj.SuggestedBindingRedirects.cache
-C:\Users\DSU Student\Source\Repos\CSC470MusicDiscovery\DiscoverSpot\DiscoverSpot\obj\Debug\DiscoverSpot.Form1.resources
 C:\Users\DSU Student\Source\Repos\CSC470MusicDiscovery\DiscoverSpot\DiscoverSpot\obj\Debug\DiscoverSpot.Properties.Resources.resources
 C:\Users\DSU Student\Source\Repos\CSC470MusicDiscovery\DiscoverSpot\DiscoverSpot\obj\Debug\DiscoverSpot.csproj.GenerateResource.cache
 C:\Users\DSU Student\Source\Repos\CSC470MusicDiscovery\DiscoverSpot\DiscoverSpot\obj\Debug\DiscoverSpot.csproj.CoreCompileInputs.cache
@@ -96,3 +95,5 @@ C:\Users\gsmal\Source\Repos\CSC470MusicDiscovery\DiscoverSpot\DiscoverSpot\obj\D
 C:\Users\gsmal\Source\Repos\CSC470MusicDiscovery\DiscoverSpot\DiscoverSpot\obj\Debug\DiscoverSpot.pdb
 C:\Users\gsmal\source\repos\CSC470MusicDiscovery\DiscoverSpot\DiscoverSpot\obj\Debug\DiscoverSpot.MainForm.resources
 C:\Users\gsmal\source\repos\CSC470MusicDiscovery\DiscoverSpot\DiscoverSpot\obj\Debug\DiscoverSpot.ConfigurationForm.resources
+C:\Users\DSU Student\Source\Repos\CSC470MusicDiscovery\DiscoverSpot\DiscoverSpot\obj\Debug\DiscoverSpot.MainForm.resources
+C:\Users\DSU Student\Source\Repos\CSC470MusicDiscovery\DiscoverSpot\DiscoverSpot\obj\Debug\DiscoverSpot.ConfigurationForm.resources

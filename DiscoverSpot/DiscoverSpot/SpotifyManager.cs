@@ -20,7 +20,7 @@ namespace DiscoverSpot
 
         private bool _considerGenre = false;
         private bool _considerArtist = false;
-        private string _dancability = "0.8";
+        private string _danceability = "0.8";
 
         public spotifyManager()
         {
@@ -64,7 +64,7 @@ namespace DiscoverSpot
         {
             _considerArtist = considerArtist;
             _considerGenre = considerGenre;
-            _dancability = dancability;
+            _danceability = dancability;
         }
 
         public bool IsConsideringArtist()
@@ -72,19 +72,19 @@ namespace DiscoverSpot
             return _considerArtist;
         }
 
-        public bool IsConsideringGenere()
+        public bool IsConsideringGenre()
         {
             return _considerGenre;
         }
 
-        public string getDancability()
+        public string getDanceability()
         {
-            return _dancability;
+            return _danceability;
         }
 
-        public void setReccomendationSeeds(List<string> tracks = null, List<string> generes = null, List<string> artists = null)
+        public void setRecommendationSeeds(List<string> tracks = null, List<string> genres = null, List<string> artists = null)
         {
-            string genereString = "", trackString = "", artistString = "";
+            string genreString = "", trackString = "", artistString = "";
 
             if(tracks == null)
             {
@@ -92,14 +92,14 @@ namespace DiscoverSpot
             }
 
             trackString = tracks.Aggregate((a, x) => a + "," + x);
-            if (generes != null && _considerGenre) genereString = generes.Aggregate((a, x) => a + "," + x);
+            if (genres != null && _considerGenre) genreString = genres.Aggregate((a, x) => a + "," + x);
             if(artists != null && _considerArtist) artistString = artists.Aggregate((a, x) => a + "," + x);
 
             _recommendationData = new RecommendationsRequest()
             {
                 Limit = 30,
-                Target = { { "danceability", _dancability } },
-                SeedGenres = {genereString},
+                Target = { { "danceability", _danceability } },
+                SeedGenres = {genreString},
                 SeedArtists = {artistString},
                 SeedTracks = {trackString}
             };
