@@ -14,7 +14,7 @@ namespace DiscoverSpot
         private static EmbedIOAuthServer _server;
         private static SpotifyClient _spotify;
         private static bool _spotifyInitialized = false;
-        private string _trackName;
+        private string _trackID;
         private SpotifyAPI.Web.PrivateUser _user;
         private RecommendationsRequest _recommendationData;
 
@@ -54,17 +54,26 @@ namespace DiscoverSpot
             return _user.DisplayName;
         }
 
-        public string getTrackName()
+        public async Task GetTrack()
         {
-            return _trackName;
+            // displays track "diskhat1"
+            // TODO: get from top items
+            var track = await _spotify.Tracks.Get("1s6ux0lNiTziSrd7iUAADH");
+
+            _trackID = track.Id;
+        }
+
+        public string getTrackID()
+        {
+            return _trackID;
         }
 
         // data used later when generating tracks, set by configure form
-        public void setConfigurationData(bool considerArtist, bool considerGenre, string dancability)
+        public void setConfigurationData(bool considerArtist, bool considerGenre, string danceability)
         {
             _considerArtist = considerArtist;
             _considerGenre = considerGenre;
-            _danceability = dancability;
+            _danceability = danceability;
         }
 
         public bool IsConsideringArtist()
@@ -120,7 +129,8 @@ namespace DiscoverSpot
                 Scopes.UserTopRead,
                 Scopes.PlaylistModifyPrivate,
                 Scopes.PlaylistModifyPublic,
-                Scopes.UserReadEmail
+                Scopes.UserReadEmail,
+                Scopes.UserReadPrivate
                 }
             };
 
@@ -173,20 +183,12 @@ namespace DiscoverSpot
                 Public = false
             };
 
-            //var createdPlaylist = await _spotify.Playlists.Create(user.Id, playlistRequest);
+            var createdPlaylist = await _spotify.Playlists.Create(user.Id, playlistRequest);
 
-            //// Add recommended tracks to the playlist
-            //var trackUris = recommendations.Tracks.Select(recommendedTrack => recommendedTrack.Uri).ToList();
-            //await _spotify.Playlists.AddItems(createdPlaylist.Id, new PlaylistAddItemsRequest(trackUris));
+            // Add recommended tracks to the playlist
+            var trackUris = recommendations.Tracks.Select(recommendedTrack => recommendedTrack.Uri).ToList();
+            await _spotify.Playlists.AddItems(createdPlaylist.Id, new PlaylistAddItemsRequest(trackUris));
         }
 
-
-        public async Task GetTrack()
-        {
-            // displays track "diskhat1"
-            var track = await _spotify.Tracks.Get("1s6ux0lNiTziSrd7iUAADH");
-
-            _trackName = track.Name;
-        }
     }
 }
