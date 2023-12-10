@@ -53,11 +53,10 @@ namespace DiscoverSpot
         {
             var topArtists = await _spotifyManager.GetTopArtist();
             var topTracks = await _spotifyManager.GetTopTrack();
-            //System.Diagnostics.Debug.WriteLine(string.Join("", topArtists.ToList()));
             _spotifyManager.setRecommendationSeeds(artistIds: string.Join(",", topArtists), trackIds: string.Join(",", topTracks));
             await _spotifyManager.CreatePlaylist();
             Button_RefreshPlaylist.Show();
-            // Button changes text indicating successfuly playlist creation
+            // Button changes text indicating successfully playlist creation
             Button_GeneratePlaylist.Text = "Success!";
             await Task.Delay(5000);
             Button_GeneratePlaylist.Text = "Generate Playlist";

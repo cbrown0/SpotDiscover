@@ -27,11 +27,12 @@ namespace DiscoverSpot
             Label_DanceabilityNumber.Text = _spotifyManager.getDanceability();
             DanceabilityBar.Value = (int) (Convert.ToDouble(_spotifyManager.getDanceability()) * 10);
             ArtistWeightBar.Value = Int32.Parse(_spotifyManager.getArtistWeight());
+            NumToAddUpDown.Value = _spotifyManager.getNumToAdd();
         }
 
         private void PushFormData()
         {
-            _spotifyManager.setConfigurationData(Label_DanceabilityNumber.Text, Label_ArtistWeightNumber.Text);
+            _spotifyManager.setConfigurationData(Label_DanceabilityNumber.Text, Label_ArtistWeightNumber.Text, NumToAddUpDown.Value);
         }
 
         private void ArtistWeightBar_Scroll(object sender, EventArgs e)
@@ -43,6 +44,11 @@ namespace DiscoverSpot
         private void DanceabilityBar_Scroll(object sender, EventArgs e)
         {
             Label_DanceabilityNumber.Text = ((double)DanceabilityBar.Value/10).ToString();
+            PushFormData();
+        }
+
+        private void NumToAddUpDown_ValueChanged(object sender, EventArgs e)
+        {
             PushFormData();
         }
     }

@@ -22,9 +22,9 @@ namespace DiscoverSpot
         private FullPlaylist createdPlaylist;
         private List<string> trackUris;
 
-        private bool _considerArtist = false;
         private string _danceability = "0.8";
         private string _artistweight = "0";
+        private decimal _numtoadd = 30;
 
         public spotifyManager()
         {
@@ -67,16 +67,19 @@ namespace DiscoverSpot
             return _user.DisplayName;
         }
 
+        
         public string getTrackID()
         {
             return _trackID;
         }
+        
 
         // data used later when generating tracks, set by configure form
-        public void setConfigurationData(string danceability, string artistweight)
+        public void setConfigurationData(string danceability, string artistweight, decimal numtoadd)
         {
             _danceability = danceability;
             _artistweight = artistweight;
+            _numtoadd = numtoadd;
         }
 
         public string getDanceability()
@@ -89,21 +92,19 @@ namespace DiscoverSpot
             return _artistweight;
         }
 
-        public void setRecommendationSeeds(string trackIds = null, string artistIds = null)
+        public decimal getNumToAdd()
         {
-            string artistString = artistIds;
-            string trackString = trackIds;
-            if (trackIds == null && artistIds == null)
-            {
-                MessageBox.Show("At least one seed must be set from tracks or artists", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            //if(artists != null && _considerArtist) artistString = artists.Aggregate((a, x) => a + "," + x);
+            return _numtoadd;
+        }
+
+        public void setRecommendationSeeds(string trackIds, string artistIds)
+        {
             _recommendationData = new RecommendationsRequest()
             {
-                Limit = 30,
+                Limit = Decimal.ToInt32(_numtoadd),
                 Target = { { "danceability", _danceability } },
-                SeedArtists = {artistString},
-                SeedTracks = {trackString}
+                SeedArtists = {artistIds},
+                SeedTracks = {trackIds}
             };
         }
 

@@ -35,8 +35,11 @@
             this.ArtistWeightBar = new System.Windows.Forms.TrackBar();
             this.Label_ArtistWeight = new System.Windows.Forms.Label();
             this.Label_ArtistWeightNumber = new System.Windows.Forms.Label();
+            this.Label_NumToAdd = new System.Windows.Forms.Label();
+            this.NumToAddUpDown = new System.Windows.Forms.NumericUpDown();
             ((System.ComponentModel.ISupportInitialize)(this.DanceabilityBar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ArtistWeightBar)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.NumToAddUpDown)).BeginInit();
             this.SuspendLayout();
             // 
             // DanceabilityBar
@@ -109,11 +112,41 @@
             this.Label_ArtistWeightNumber.TabIndex = 9;
             this.Label_ArtistWeightNumber.Text = "0";
             // 
+            // Label_NumToAdd
+            // 
+            this.Label_NumToAdd.AutoSize = true;
+            this.Label_NumToAdd.Location = new System.Drawing.Point(18, 199);
+            this.Label_NumToAdd.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.Label_NumToAdd.Name = "Label_NumToAdd";
+            this.Label_NumToAdd.Size = new System.Drawing.Size(196, 16);
+            this.Label_NumToAdd.TabIndex = 12;
+            this.Label_NumToAdd.Text = "Number of Songs to Add (1-100)";
+            // 
+            // NumToAddUpDown
+            // 
+            this.NumToAddUpDown.Location = new System.Drawing.Point(20, 218);
+            this.NumToAddUpDown.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.NumToAddUpDown.Name = "NumToAddUpDown";
+            this.NumToAddUpDown.Size = new System.Drawing.Size(120, 22);
+            this.NumToAddUpDown.TabIndex = 13;
+            this.NumToAddUpDown.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.NumToAddUpDown.ValueChanged += new System.EventHandler(this.NumToAddUpDown_ValueChanged);
+            // 
             // ConfigurationForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(327, 554);
+            this.Controls.Add(this.NumToAddUpDown);
+            this.Controls.Add(this.Label_NumToAdd);
             this.Controls.Add(this.Label_ArtistWeightNumber);
             this.Controls.Add(this.Label_ArtistWeight);
             this.Controls.Add(this.ArtistWeightBar);
@@ -127,6 +160,7 @@
             this.Load += new System.EventHandler(this.ConfigurationForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.DanceabilityBar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ArtistWeightBar)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.NumToAddUpDown)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -140,5 +174,7 @@
         private System.Windows.Forms.TrackBar ArtistWeightBar;
         private System.Windows.Forms.Label Label_ArtistWeight;
         private System.Windows.Forms.Label Label_ArtistWeightNumber;
+        private System.Windows.Forms.Label Label_NumToAdd;
+        private System.Windows.Forms.NumericUpDown NumToAddUpDown;
     }
 }
