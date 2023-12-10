@@ -59,9 +59,9 @@ namespace DiscoverSpot
         private async void ButtonGeneratePlaylist_Click(object sender, EventArgs e)
         {
             var topArtists = await _spotifyManager.GetTopArtist();
+            var topTracks = await _spotifyManager.GetTopTrack();
             //System.Diagnostics.Debug.WriteLine(string.Join("", topArtists.ToList()));
-            // TODO, make this change based on some tracks and artists pulled from the user...
-            _spotifyManager.setRecommendationSeeds(artistIds: string.Join(",", topArtists));
+            _spotifyManager.setRecommendationSeeds(artistIds: string.Join(",", topArtists), trackIds: string.Join(",", topTracks));
             await _spotifyManager.CreatePlaylist();
         }
 

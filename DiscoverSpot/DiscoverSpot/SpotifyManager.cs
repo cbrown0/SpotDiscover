@@ -113,11 +113,11 @@ namespace DiscoverSpot
             return _danceability;
         }
 
-        public void setRecommendationSeeds(List<string> tracks = null, List<string> genres = null, string artistIds = null)
+        public void setRecommendationSeeds(string trackIds = null, string genres = null, string artistIds = null)
         {
             string artistString = artistIds;
-
-            if (tracks == null && artistIds == null && genres == null)
+            string trackString = trackIds;
+            if (trackIds == null && artistIds == null && genres == null)
             {
                 MessageBox.Show("At least one seed must be set from tracks, artists, or genres", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
@@ -129,7 +129,7 @@ namespace DiscoverSpot
                 Target = { { "danceability", _danceability } },
                 //SeedGenres = {genreString},
                 SeedArtists = {artistString},
-                //SeedTracks = {trackString}
+                SeedTracks = {trackString}
             };
         }
 
@@ -220,13 +220,26 @@ namespace DiscoverSpot
             // Grab top 5 artists within the past month
             var artistRequest = new PersonalizationTopRequest()
             {
-                Limit = 5,
+                Limit = 2,
                 Offset = 0,
                 TimeRangeParam = PersonalizationTopRequest.TimeRange.ShortTerm
             };
             var topArtists = await _spotify.Personalization.GetTopArtists(artistRequest);
             // Return only the IDs not the full URI
             return topArtists.Items.Select(a => a.Id).ToList();
+        }
+        public async Task<List<string>> GetTopTrack()
+        {
+            // Grab top 5 tracks within the past month
+            var trackRequest = new PersonalizationTopRequest()
+            {
+                Limit = 3,
+                Offset = 0,
+                TimeRangeParam = PersonalizationTopRequest.TimeRange.ShortTerm
+            };
+            var topTrack = await _spotify.Personalization.GetTopArtists(trackRequest);
+            // Return only the IDs not the full URI
+            return topTrack.Items.Select(a => a.Id).ToList();
         }
     }
 }
