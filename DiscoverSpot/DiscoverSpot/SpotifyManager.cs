@@ -99,6 +99,8 @@ namespace DiscoverSpot
 
         public void setRecommendationSeeds(string trackIds, string artistIds)
         {
+            System.Diagnostics.Debug.WriteLine("Track IDs:" + trackIds);
+
             _recommendationData = new RecommendationsRequest()
             {
                 Limit = Decimal.ToInt32(_numtoadd),
@@ -216,7 +218,8 @@ namespace DiscoverSpot
                 Offset = 0,
                 TimeRangeParam = PersonalizationTopRequest.TimeRange.ShortTerm
             };
-            var topTrack = await _spotify.Personalization.GetTopArtists(trackRequest);
+            var topTrack = await _spotify.Personalization.GetTopTracks(trackRequest);
+
             // Return only the IDs not the full URI
             return topTrack.Items.Select(a => a.Id).ToList();
         }
