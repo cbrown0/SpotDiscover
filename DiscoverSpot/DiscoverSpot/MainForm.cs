@@ -77,7 +77,14 @@ namespace DiscoverSpot
 
         private async void Button_RefreshPlaylist_Click(object sender, EventArgs e)
         {
-            await _spotifyManager.RefreshPlaylist();
+            try
+            {
+                await _spotifyManager.RefreshPlaylist();
+            } catch (APITooManyRequestsException ex)
+            {
+                MessageBox.Show("Hit rate limit. Please wait " + ex.RetryAfter + " seconds.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            
         }
     }
 }
