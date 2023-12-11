@@ -1,7 +1,9 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\DiscoverSpot",
+    "\\DiscoverSpot\\DiscoverSpot"
   ],
-  "SelectedNode": "\\DiscoverSpot.sln",
+  "SelectedNode": "\\DiscoverSpot\\DiscoverSpot\\SpotifyManager.cs",
   "PreviewInSolutionExplorer": false
 }

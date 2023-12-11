@@ -111,7 +111,7 @@ namespace DiscoverSpot
 
             //client ID goes in second field of LoginRequest
             //set scope for user token to pull the top tracks, get recommendations, and create/fill a playlist
-            var request = new LoginRequest(_server.BaseUri, "07d2f610371745aba056026392538495", LoginRequest.ResponseType.Code)
+            var request = new LoginRequest(_server.BaseUri, "46d404d9bba44eb4ae795adc212c641a", LoginRequest.ResponseType.Code)
             {
                 Scope = new List<string> {
                 Scopes.UserTopRead,
@@ -145,7 +145,7 @@ namespace DiscoverSpot
             var config = SpotifyClientConfig.CreateDefault();
             var tokenResponse = await new OAuthClient(config).RequestToken(
                 new AuthorizationCodeTokenRequest(
-                    "07d2f610371745aba056026392538495", "469e5c1e0ad64a42a77fe116099330f3", response.Code, new Uri("http://localhost:5543/callback")
+                    "46d404d9bba44eb4ae795adc212c641a", "3848f963a5c7485d9e05054360240e98", response.Code, new Uri("http://localhost:5543/callback")
                 )
             );
             // save token in _spotify
