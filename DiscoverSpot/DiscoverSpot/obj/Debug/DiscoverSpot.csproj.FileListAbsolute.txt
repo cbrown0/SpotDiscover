@@ -124,3 +124,7 @@ C:\Users\carte\Source\Repos\SpotDiscover\DiscoverSpot\DiscoverSpot\obj\Debug\Dis
 C:\Users\carte\Source\Repos\SpotDiscover\DiscoverSpot\DiscoverSpot\obj\Debug\DiscoverSpot.csproj.CopyComplete
 C:\Users\carte\Source\Repos\SpotDiscover\DiscoverSpot\DiscoverSpot\obj\Debug\DiscoverSpot.exe
 C:\Users\carte\Source\Repos\SpotDiscover\DiscoverSpot\DiscoverSpot\obj\Debug\DiscoverSpot.pdb
+C:\Users\carte\source\repos\SpotDiscover\DiscoverSpot\DiscoverSpot\bin\Debug\DiscoverSpot.exe.manifest
+C:\Users\carte\source\repos\SpotDiscover\DiscoverSpot\DiscoverSpot\bin\Debug\DiscoverSpot.application
+C:\Users\carte\source\repos\SpotDiscover\DiscoverSpot\DiscoverSpot\obj\Debug\DiscoverSpot.exe.manifest
+C:\Users\carte\source\repos\SpotDiscover\DiscoverSpot\DiscoverSpot\obj\Debug\DiscoverSpot.application

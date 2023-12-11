@@ -2,8 +2,9 @@
   "ExpandedNodes": [
     "",
     "\\DiscoverSpot",
-    "\\DiscoverSpot\\DiscoverSpot"
+    "\\DiscoverSpot\\DiscoverSpot",
+    "\\DiscoverSpot\\packages"
   ],
-  "SelectedNode": "\\DiscoverSpot\\DiscoverSpot\\SpotifyManager.cs",
+  "SelectedNode": "\\DiscoverSpot\\DiscoverSpot\\DiscoverSpot.csproj.user",
   "PreviewInSolutionExplorer": false
 }
