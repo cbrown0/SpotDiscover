@@ -21,6 +21,7 @@ namespace DiscoverSpot
         private FullPlaylist createdPlaylist;
         private List<string> trackUris;
 
+        // Default values
         private string _danceability = "0.8";
         private string _artistweight = "0";
         private decimal _numtoadd = 30;
