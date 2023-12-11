@@ -51,6 +51,7 @@ namespace DiscoverSpot
 
         private async void ButtonGeneratePlaylist_Click(object sender, EventArgs e)
         {
+            // Catch any rate limit errors
             try
             {
             var topArtists = await _spotifyManager.GetTopArtist();
@@ -77,6 +78,7 @@ namespace DiscoverSpot
 
         private async void Button_RefreshPlaylist_Click(object sender, EventArgs e)
         {
+            // Catch any rate limit errors
             try
             {
                 await _spotifyManager.RefreshPlaylist();
