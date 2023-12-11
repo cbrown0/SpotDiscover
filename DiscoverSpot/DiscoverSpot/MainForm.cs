@@ -51,10 +51,17 @@ namespace DiscoverSpot
 
         private async void ButtonGeneratePlaylist_Click(object sender, EventArgs e)
         {
+            try
+            {
             var topArtists = await _spotifyManager.GetTopArtist();
             var topTracks = await _spotifyManager.GetTopTrack();
             _spotifyManager.setRecommendationSeeds(artistIds: string.Join(",", topArtists), trackIds: string.Join(",", topTracks));
-            await _spotifyManager.CreatePlaylist();
+            await _spotifyManager.CreatePlaylist(); 
+            } catch (APITooManyRequestsException ex)
+            {
+                MessageBox.Show("Hit rate limit. Please wait " + ex.RetryAfter + " seconds.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            
             Button_RefreshPlaylist.Show();
             // Button changes text indicating successfully playlist creation
             doneimage.Show();
@@ -70,7 +77,14 @@ namespace DiscoverSpot
 
         private async void Button_RefreshPlaylist_Click(object sender, EventArgs e)
         {
-            await _spotifyManager.RefreshPlaylist();
+            try
+            {
+                await _spotifyManager.RefreshPlaylist();
+            } catch (APITooManyRequestsException ex)
+            {
+                MessageBox.Show("Hit rate limit. Please wait " + ex.RetryAfter + " seconds.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            
         }
 
         private void Label_Username_Click(object sender, EventArgs e)
