@@ -15,7 +15,6 @@ namespace DiscoverSpot
         private static EmbedIOAuthServer _server;
         private static SpotifyClient _spotify;
         private static bool _spotifyInitialized = false;
-        private string _trackID;
         private SpotifyAPI.Web.PrivateUser _user;
         private RecommendationsRequest _recommendationData;
         private System.Timers.Timer _playlistTimer;
@@ -57,29 +56,20 @@ namespace DiscoverSpot
             await _spotify.Playlists.ReplaceItems(createdPlaylist.Id, new PlaylistReplaceItemsRequest(trackUris));
         }
 
-        public bool IsInitialized()
-        {
-            return _spotifyInitialized;
-        }
-
-        public string getUserName()
-        {
-            return _user.DisplayName;
-        }
-
-        
-        public string getTrackID()
-        {
-            return _trackID;
-        }
-        
-
         // data used later when generating tracks, set by configure form
         public void setConfigurationData(string danceability, string artistweight, decimal numtoadd)
         {
             _danceability = danceability;
             _artistweight = artistweight;
             _numtoadd = numtoadd;
+        }
+        public string getUserName()
+        {
+            return _user.DisplayName;
+        }
+        public bool IsInitialized()
+        {
+            return _spotifyInitialized;
         }
 
         public string getDanceability()
@@ -96,7 +86,7 @@ namespace DiscoverSpot
         {
             return _numtoadd;
         }
-
+        //prepare recommendation data for request
         public void setRecommendationSeeds(string trackIds, string artistIds)
         {
             System.Diagnostics.Debug.WriteLine("Track IDs:" + trackIds);
@@ -105,8 +95,8 @@ namespace DiscoverSpot
             {
                 Limit = Decimal.ToInt32(_numtoadd),
                 Target = { { "danceability", _danceability } },
-                SeedArtists = {artistIds},
-                SeedTracks = {trackIds}
+                SeedArtists = { artistIds },
+                SeedTracks = { trackIds }
             };
         }
 
@@ -119,6 +109,7 @@ namespace DiscoverSpot
             _server.ErrorReceived += OnErrorReceived;
 
             //client ID goes in second field of LoginRequest
+            //set scope for user token to pull the top tracks, get recommendations, and create/fill a playlist
             var request = new LoginRequest(_server.BaseUri, "457d687267f447f39d58af721581f1b8", LoginRequest.ResponseType.Code)
             {
                 Scope = new List<string> {
@@ -130,6 +121,7 @@ namespace DiscoverSpot
                 }
             };
 
+            //opens the authorization window in the browser
             BrowserUtil.Open(request.ToUri());
 
             // Check every 100 milliseconds if spotify has successfully initizaled before making api calls
@@ -141,7 +133,8 @@ namespace DiscoverSpot
             // Get user profile
             _user = await _spotify.UserProfile.Current();
         }
-
+        
+        //create new spotify client based on the user's oauth token
         public async Task OnAuthorizationCodeReceived(object sender, AuthorizationCodeResponse response)
         {
             await _server.Stop();
@@ -159,18 +152,18 @@ namespace DiscoverSpot
             _spotifyInitialized = true;
         }
 
+        // stop the whole server if there is an error
         public async Task OnErrorReceived(object sender, string error, string state)
         {
             await _server.Stop();
         }
+        // create spotify playlist in app
         public async Task CreatePlaylist()
         {
             var user = await _spotify.UserProfile.Current();
 
             // Request song recommendations based on the seeds
             var recommendations = await _spotify.Browse.GetRecommendations(_recommendationData);
-
-            System.Diagnostics.Debug.WriteLine(string.Join(",\n", recommendations.Tracks.Select(track => track.Name).ToList()));
 
             // Create SpotDiscover playlist
             var playlistRequest = new PlaylistCreateRequest("SpotDiscover")
@@ -187,11 +180,13 @@ namespace DiscoverSpot
 
             // 24 hour timer
             _playlistTimer = new System.Timers.Timer(60 * 60 * 1000 * 24);
+
             // Refresh playlist after set time only works if program is left open
             _playlistTimer.Elapsed += PlaylistTimer_Elapsed;
             _playlistTimer.Enabled = true;
         }
 
+        //gets the user's top artists based on the artistweight in the configure (0 - 5)
         public async Task<List<string>> GetTopArtist()
         {
             int artistweight = Int32.Parse(_artistweight);
@@ -204,9 +199,12 @@ namespace DiscoverSpot
                 TimeRangeParam = PersonalizationTopRequest.TimeRange.ShortTerm
             };
             var topArtists = await _spotify.Personalization.GetTopArtists(artistRequest);
+
             // Return only the IDs not the full URI
             return topArtists.Items.Select(a => a.Id).ToList();
         }
+
+        //gets the user's top songs based on the artistweight in the configure
         public async Task<List<string>> GetTopTrack()
         {
             int trackweight = 5 - Int32.Parse(_artistweight);

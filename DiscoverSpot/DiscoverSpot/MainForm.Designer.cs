@@ -56,7 +56,6 @@
             this.Label_Username.TabIndex = 5;
             this.Label_Username.Text = "Username";
             this.Label_Username.Visible = false;
-            this.Label_Username.Click += new System.EventHandler(this.Label_Username_Click);
             // 
             // doneimage
             // 

@@ -16,7 +16,7 @@ namespace DiscoverSpot
 {
     public partial class MainForm : Form
     {
-        private spotifyManager _spotifyManager;
+       private spotifyManager _spotifyManager;
 
        public MainForm()
        {
@@ -34,12 +34,13 @@ namespace DiscoverSpot
             // Initialize Spotify when the button's clicked
             await _spotifyManager.InitializeSpotify();
 
-            // Check every 100 milliseconds if spotify has successfully initizaled before making api calls
+            // Check every 100 milliseconds if spotify has successfully initialized before making api calls
             while (!_spotifyManager.IsInitialized())
             {
                 await Task.Delay(100);
             }
 
+            //After the user authorizes, change form appearance to allow playlist creation/configuration
             Label_Username.Text = _spotifyManager.getUserName();
 
             Button_Authenticate.Hide();
@@ -54,17 +55,19 @@ namespace DiscoverSpot
             // Catch any rate limit errors
             try
             {
-            var topArtists = await _spotifyManager.GetTopArtist();
-            var topTracks = await _spotifyManager.GetTopTrack();
-            _spotifyManager.setRecommendationSeeds(artistIds: string.Join(",", topArtists), trackIds: string.Join(",", topTracks));
-            await _spotifyManager.CreatePlaylist(); 
+                var topArtists = await _spotifyManager.GetTopArtist();
+                var topTracks = await _spotifyManager.GetTopTrack();
+                _spotifyManager.setRecommendationSeeds(artistIds: string.Join(",", topArtists), trackIds: string.Join(",", topTracks));
+                //delay to prevent getting rate limited
+                await Task.Delay(1000);
+                await _spotifyManager.CreatePlaylist(); 
             } catch (APITooManyRequestsException ex)
             {
                 MessageBox.Show("Hit rate limit. Please wait " + ex.RetryAfter + " seconds.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            
-            Button_RefreshPlaylist.Show();
+
             // Button changes text indicating successfully playlist creation
+            Button_RefreshPlaylist.Show();
             doneimage.Show();
             await Task.Delay(8000);
             doneimage.Hide();
@@ -86,12 +89,6 @@ namespace DiscoverSpot
             {
                 MessageBox.Show("Hit rate limit. Please wait " + ex.RetryAfter + " seconds.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            
-        }
-
-        private void Label_Username_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }
