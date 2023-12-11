@@ -93,6 +93,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -107,6 +108,36 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\sdGeneratePlaylist.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\sdAuthenticate.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\sdRefresh.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\sdConfigure.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\sdLogo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\sdCurrentUser.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\sdDance.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\sdArtist.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\sdTracksNumber.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\done.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

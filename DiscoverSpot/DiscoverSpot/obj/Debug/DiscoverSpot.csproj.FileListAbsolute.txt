@@ -43,7 +43,6 @@ C:\Users\Isabelle\source\repos\isabellebakker\CSC470MusicDiscovery\DiscoverSpot\
 C:\Users\Isabelle\source\repos\isabellebakker\CSC470MusicDiscovery\DiscoverSpot\DiscoverSpot\bin\Debug\SpotifyAPI.Web.Auth.xml
 C:\Users\Isabelle\source\repos\isabellebakker\CSC470MusicDiscovery\DiscoverSpot\DiscoverSpot\bin\Debug\Swan.Lite.xml
 C:\Users\Isabelle\source\repos\isabellebakker\CSC470MusicDiscovery\DiscoverSpot\DiscoverSpot\bin\Debug\System.ValueTuple.xml
-C:\Users\Isabelle\source\repos\isabellebakker\CSC470MusicDiscovery\DiscoverSpot\DiscoverSpot\obj\Debug\DiscoverSpot.Form1.resources
 C:\Users\Isabelle\source\repos\isabellebakker\CSC470MusicDiscovery\DiscoverSpot\DiscoverSpot\obj\Debug\DiscoverSpot.csproj.CopyComplete
 C:\Users\DSU Student\Source\Repos\CSC470MusicDiscovery\DiscoverSpot\DiscoverSpot\bin\Debug\DiscoverSpot.exe.config
 C:\Users\DSU Student\Source\Repos\CSC470MusicDiscovery\DiscoverSpot\DiscoverSpot\bin\Debug\DiscoverSpot.exe
@@ -98,3 +97,5 @@ C:\Users\DSU Student\Source\Repos\CSC470MusicDiscovery\DiscoverSpot\DiscoverSpot
 C:\Users\DSU Student\Source\Repos\CSC470MusicDiscovery\DiscoverSpot\DiscoverSpot\obj\Debug\DiscoverSpot.ConfigurationForm.resources
 C:\Users\carte\Source\Repos\CSC470MusicDiscovery\DiscoverSpot\DiscoverSpot\obj\Debug\DiscoverSpot.MainForm.resources
 C:\Users\carte\Source\Repos\CSC470MusicDiscovery\DiscoverSpot\DiscoverSpot\obj\Debug\DiscoverSpot.ConfigurationForm.resources
+C:\Users\Isabelle\source\repos\isabellebakker\CSC470MusicDiscovery\DiscoverSpot\DiscoverSpot\obj\Debug\DiscoverSpot.MainForm.resources
+C:\Users\Isabelle\source\repos\isabellebakker\CSC470MusicDiscovery\DiscoverSpot\DiscoverSpot\obj\Debug\DiscoverSpot.ConfigurationForm.resources

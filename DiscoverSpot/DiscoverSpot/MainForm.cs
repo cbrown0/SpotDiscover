@@ -44,9 +44,9 @@ namespace DiscoverSpot
 
             Button_Authenticate.Hide();
             Button_GeneratePlaylist.Show();
-            Label_SignedInAs.Show();
             Label_Username.Show();
             Button_configure.Show();
+            currentusertext.Show();
        }
 
         private async void ButtonGeneratePlaylist_Click(object sender, EventArgs e)
@@ -57,9 +57,9 @@ namespace DiscoverSpot
             await _spotifyManager.CreatePlaylist();
             Button_RefreshPlaylist.Show();
             // Button changes text indicating successfully playlist creation
-            Button_GeneratePlaylist.Text = "Success!";
-            await Task.Delay(5000);
-            Button_GeneratePlaylist.Text = "Generate Playlist";
+            doneimage.Show();
+            await Task.Delay(8000);
+            doneimage.Hide();
         }
 
        private void ButtonConfigure_Click(object sender, EventArgs e)
@@ -71,6 +71,11 @@ namespace DiscoverSpot
         private async void Button_RefreshPlaylist_Click(object sender, EventArgs e)
         {
             await _spotifyManager.RefreshPlaylist();
+        }
+
+        private void Label_Username_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
