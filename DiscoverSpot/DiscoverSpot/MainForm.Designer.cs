@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.Label_Username = new System.Windows.Forms.Label();
             this.doneimage = new System.Windows.Forms.PictureBox();
             this.spotdiscoverlogo = new System.Windows.Forms.PictureBox();
@@ -146,6 +147,7 @@
             this.Controls.Add(this.Button_GeneratePlaylist);
             this.Controls.Add(this.Button_Authenticate);
             this.Controls.Add(this.currentusertext);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "MainForm";
             this.Text = "SpotDiscover";
             this.Load += new System.EventHandler(this.MainForm_Load);
