@@ -91,8 +91,6 @@ namespace DiscoverSpot
         //prepare recommendation data for request
         public void setRecommendationSeeds(string trackIds, string artistIds)
         {
-            System.Diagnostics.Debug.WriteLine("Track IDs:" + trackIds);
-
             _recommendationData = new RecommendationsRequest()
             {
                 Limit = Decimal.ToInt32(_numtoadd),
