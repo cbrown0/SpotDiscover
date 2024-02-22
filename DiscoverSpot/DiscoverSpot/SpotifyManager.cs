@@ -23,7 +23,8 @@ namespace DiscoverSpot
 
         // Default values
         private string _danceability = "0.8";
-        private string _artistweight = "0";
+        // Limit must have a minimum of "1" and max of 5
+        private string _artistweight = "1";
         private decimal _numtoadd = 30;
 
         public spotifyManager()
@@ -195,6 +196,7 @@ namespace DiscoverSpot
             // Grab top artists within the past month
             var artistRequest = new PersonalizationTopRequest()
             {
+                // Limit must be 1 <= x <= 5 across both artistRequest and trackRequest
                 Limit = artistweight,
                 Offset = 0,
                 TimeRangeParam = PersonalizationTopRequest.TimeRange.ShortTerm
