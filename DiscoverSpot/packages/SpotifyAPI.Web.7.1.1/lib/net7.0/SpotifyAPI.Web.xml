@@ -867,6 +867,31 @@
             <typeparam name="TNext">Outer response Type</typeparam>
             <returns>A list containing all pages, including the firstPage</returns>
         </member>
+        <member name="M:SpotifyAPI.Web.IPaginator.Paginate``1(SpotifyAPI.Web.IPaginatable{``0},SpotifyAPI.Web.Http.IAPIConnector,System.Threading.CancellationToken)">
+            <summary>
+            Fetches all pages and returns one by one using IAsyncEnumerable
+            </summary>
+            <param name="firstPage">The first page. Will be included in the result list!</param>
+            <param name="connector">An API Connector to make requests to spotify</param>
+            <param name="cancel">A cancel</param>
+            <typeparam name="T">Paging Type</typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:SpotifyAPI.Web.IPaginator.Paginate``2(SpotifyAPI.Web.IPaginatable{``0,``1},System.Func{``1,SpotifyAPI.Web.IPaginatable{``0,``1}},SpotifyAPI.Web.Http.IAPIConnector,System.Threading.CancellationToken)">
+            <summary>
+            Fetches all pages and returns them grouped in a list.
+            Supports a mapping method which takes care of JSON mapping problems.
+            To give an example, the Search method always returns the paging objects nested in a key. The mapper functions
+            tells the paginate function where to find the actual paging object in the response.
+            </summary>
+            <param name="firstPage">The first page. Will be included in the result list!</param>
+            <param name="mapper">A function which returns the actual paging object in another response object</param>
+            <param name="connector">An API Connector to make requests to spotify</param>
+            <param name="cancel">A cancel</param>
+            <typeparam name="T">Paging Type</typeparam>
+            <typeparam name="TNext">Outer response Type</typeparam>
+            <returns></returns>
+        </member>
         <member name="T:SpotifyAPI.Web.IPersonalizationClient">
             <summary>
             Endpoints for retrieving information about the user’s listening habits.
@@ -1536,6 +1561,34 @@
             <typeparam name="TNext">The Response-Type</typeparam>
             <returns>A list containing all fetched pages</returns>
         </member>
+        <member name="M:SpotifyAPI.Web.ISpotifyClient.Paginate``1(SpotifyAPI.Web.IPaginatable{``0},SpotifyAPI.Web.IPaginator,System.Threading.CancellationToken)">
+            <summary>
+            Paginate through pages by using IAsyncEnumerable, introduced in C# 8
+            The default paginator will fetch all available resources without a delay between requests.
+            This can drain your request limit quite fast, so consider using a custom paginator with delays.
+            </summary>
+            <param name="firstPage">A first page, will be included in the output list!</param>
+            <param name="paginator">Optional. If not supplied, DefaultPaginator will be used</param>
+            <param name="cancel">An optional Cancellation Token</param>
+            <typeparam name="T">The Paging-Type</typeparam>
+            <returns>An iterable IAsyncEnumerable</returns>
+        </member>
+        <member name="M:SpotifyAPI.Web.ISpotifyClient.Paginate``2(SpotifyAPI.Web.IPaginatable{``0,``1},System.Func{``1,SpotifyAPI.Web.IPaginatable{``0,``1}},SpotifyAPI.Web.IPaginator,System.Threading.CancellationToken)">
+            <summary>
+            Paginate through pages by using IAsyncEnumerable, introduced in C# 8
+            Some responses (e.g search response) have the pagination nested in a JSON Property.
+            To workaround this limitation, the mapper is required and needs to point to the correct next pagination.
+            The default paginator will fetch all available resources without a delay between requests.
+            This can drain your request limit quite fast, so consider using a custom paginator with delays.
+            </summary>
+            <param name="firstPage">A first page, will be included in the output list!</param>
+            <param name="mapper">A function which maps response objects to the next paging object</param>
+            <param name="paginator">Optional. If not supplied, DefaultPaginator will be used</param>
+            <param name="cancel">An optional Cancellation Token</param>
+            <typeparam name="T">The Paging-Type</typeparam>
+            <typeparam name="TNext">The Response-Type</typeparam>
+            <returns></returns>
+        </member>
         <member name="T:SpotifyAPI.Web.ITracksClient">
             <summary>
             Endpoints for retrieving information about one or more tracks from the Spotify catalog.
@@ -1794,6 +1847,66 @@
             <param name="paging">A complex paging object with a previous page</param>
             <typeparam name="T"></typeparam>
             <typeparam name="TNext">The type of the next page</typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:SpotifyAPI.Web.SpotifyClient.Paginate``1(SpotifyAPI.Web.IPaginatable{``0},SpotifyAPI.Web.IPaginator,System.Threading.CancellationToken)">
+            <summary>
+            Paginate through pages by using IAsyncEnumerable, introduced in C# 8
+            The default paginator will fetch all available resources without a delay between requests.
+            This can drain your request limit quite fast, so consider using a custom paginator with delays.
+            </summary>
+            <param name="firstPage">A first page, will be included in the output list!</param>
+            <param name="paginator">Optional. If not supplied, DefaultPaginator will be used</param>
+            <param name="cancel">An optional Cancellation Token</param>
+            <typeparam name="T">The Paging-Type</typeparam>
+            <returns>An iterable IAsyncEnumerable</returns>
+        </member>
+        <member name="M:SpotifyAPI.Web.SpotifyClient.Paginate``2(SpotifyAPI.Web.IPaginatable{``0,``1},System.Func{``1,SpotifyAPI.Web.IPaginatable{``0,``1}},SpotifyAPI.Web.IPaginator,System.Threading.CancellationToken)">
+            <summary>
+            Paginate through pages by using IAsyncEnumerable, introduced in C# 8
+            Some responses (e.g search response) have the pagination nested in a JSON Property.
+            To workaround this limitation, the mapper is required and needs to point to the correct next pagination.
+            The default paginator will fetch all available resources without a delay between requests.
+            This can drain your request limit quite fast, so consider using a custom paginator with delays.
+            </summary>
+            <param name="firstPage">A first page, will be included in the output list!</param>
+            <param name="mapper">A function which maps response objects to the next paging object</param>
+            <param name="paginator">Optional. If not supplied, DefaultPaginator will be used</param>
+            <param name="cancel">An optional Cancellation Token</param>
+            <typeparam name="T">The Paging-Type</typeparam>
+            <typeparam name="TNext">The Response-Type</typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:SpotifyAPI.Web.SpotifyClient.Paginate``2(System.Func{System.Threading.Tasks.Task{SpotifyAPI.Web.IPaginatable{``0,``1}}},System.Func{``1,SpotifyAPI.Web.IPaginatable{``0,``1}},SpotifyAPI.Web.IPaginator,System.Threading.CancellationToken)">
+            <summary>
+            Paginate through pages by using IAsyncEnumerable, introduced in C# 8
+            Some responses (e.g search response) have the pagination nested in a JSON Property.
+            To workaround this limitation, the mapper is required and needs to point to the correct next pagination.
+            The default paginator will fetch all available resources without a delay between requests.
+            This can drain your request limit quite fast, so consider using a custom paginator with delays.
+            </summary>
+            <param name="getFirstPage">A Function to retrive the first page, will be included in the output list!</param>
+            <param name="mapper">A function which maps response objects to the next paging object</param>
+            <param name="paginator">Optional. If not supplied, DefaultPaginator will be used</param>
+            <param name="cancel">An optional Cancellation Token</param>
+            <typeparam name="T">The Paging-Type</typeparam>
+            <typeparam name="TNext">The Response-Type</typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:SpotifyAPI.Web.SpotifyClient.Paginate``2(System.Threading.Tasks.Task{SpotifyAPI.Web.IPaginatable{``0,``1}},System.Func{``1,SpotifyAPI.Web.IPaginatable{``0,``1}},SpotifyAPI.Web.IPaginator,System.Threading.CancellationToken)">
+            <summary>
+            Paginate through pages by using IAsyncEnumerable, introduced in C# 8
+            Some responses (e.g search response) have the pagination nested in a JSON Property.
+            To workaround this limitation, the mapper is required and needs to point to the correct next pagination.
+            The default paginator will fetch all available resources without a delay between requests.
+            This can drain your request limit quite fast, so consider using a custom paginator with delays.
+            </summary>
+            <param name="firstPageTask">A Task to retrive the first page, will be included in the output list!</param>
+            <param name="mapper">A function which maps response objects to the next paging object</param>
+            <param name="paginator">Optional. If not supplied, DefaultPaginator will be used</param>
+            <param name="cancel">An optional Cancellation Token</param>
+            <typeparam name="T">The Paging-Type</typeparam>
+            <typeparam name="TNext">The Response-Type</typeparam>
             <returns></returns>
         </member>
         <member name="M:SpotifyAPI.Web.SpotifyClientConfig.#ctor(System.Uri,SpotifyAPI.Web.IAuthenticator,SpotifyAPI.Web.Http.IJSONSerializer,SpotifyAPI.Web.Http.IHTTPClient,SpotifyAPI.Web.Http.IRetryHandler,SpotifyAPI.Web.Http.IHTTPLogger,SpotifyAPI.Web.IPaginator,SpotifyAPI.Web.Http.IAPIConnector)">

@@ -3,20 +3,20 @@
   "WorkspaceRootPath": "C:\\Users\\carte\\source\\repos\\SpotDiscover\\DiscoverSpot\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{39D76EA3-E2D9-4FF8-A72F-3EF5D75C7E38}|DiscoverSpot\\DiscoverSpot.csproj|c:\\users\\carte\\source\\repos\\spotdiscover\\discoverspot\\discoverspot\\spotifymanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{39D76EA3-E2D9-4FF8-A72F-3EF5D75C7E38}|DiscoverSpot\\DiscoverSpot.csproj|C:\\Users\\carte\\source\\repos\\SpotDiscover\\DiscoverSpot\\discoverspot\\spotifymanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{39D76EA3-E2D9-4FF8-A72F-3EF5D75C7E38}|DiscoverSpot\\DiscoverSpot.csproj|solutionrelative:discoverspot\\spotifymanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{39D76EA3-E2D9-4FF8-A72F-3EF5D75C7E38}|DiscoverSpot\\DiscoverSpot.csproj|C:\\Users\\carte\\source\\repos\\SpotDiscover\\DiscoverSpot\\discoverspot\\configurationform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{39D76EA3-E2D9-4FF8-A72F-3EF5D75C7E38}|DiscoverSpot\\DiscoverSpot.csproj|solutionrelative:discoverspot\\configurationform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
       "AbsoluteMoniker": "D:0:0:{39D76EA3-E2D9-4FF8-A72F-3EF5D75C7E38}|DiscoverSpot\\DiscoverSpot.csproj|C:\\Users\\carte\\source\\repos\\SpotDiscover\\DiscoverSpot\\discoverspot\\configurationform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{39D76EA3-E2D9-4FF8-A72F-3EF5D75C7E38}|DiscoverSpot\\DiscoverSpot.csproj|solutionrelative:discoverspot\\configurationform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{39D76EA3-E2D9-4FF8-A72F-3EF5D75C7E38}|DiscoverSpot\\DiscoverSpot.csproj|C:\\Users\\carte\\source\\repos\\SpotDiscover\\DiscoverSpot\\discoverspot\\mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{39D76EA3-E2D9-4FF8-A72F-3EF5D75C7E38}|DiscoverSpot\\DiscoverSpot.csproj|c:\\users\\carte\\source\\repos\\spotdiscover\\discoverspot\\discoverspot\\mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{39D76EA3-E2D9-4FF8-A72F-3EF5D75C7E38}|DiscoverSpot\\DiscoverSpot.csproj|solutionrelative:discoverspot\\mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{39D76EA3-E2D9-4FF8-A72F-3EF5D75C7E38}|DiscoverSpot\\DiscoverSpot.csproj|C:\\Users\\carte\\source\\repos\\SpotDiscover\\DiscoverSpot\\discoverspot\\configurationform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{39D76EA3-E2D9-4FF8-A72F-3EF5D75C7E38}|DiscoverSpot\\DiscoverSpot.csproj|solutionrelative:discoverspot\\configurationform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
       "AbsoluteMoniker": "D:0:0:{39D76EA3-E2D9-4FF8-A72F-3EF5D75C7E38}|DiscoverSpot\\DiscoverSpot.csproj|C:\\Users\\carte\\source\\repos\\SpotDiscover\\DiscoverSpot\\discoverspot\\mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
@@ -56,34 +56,36 @@
               "RelativeDocumentMoniker": "DiscoverSpot\\SpotifyManager.cs",
               "ToolTip": "C:\\Users\\carte\\source\\repos\\SpotDiscover\\DiscoverSpot\\DiscoverSpot\\SpotifyManager.cs",
               "RelativeToolTip": "DiscoverSpot\\SpotifyManager.cs",
-              "ViewState": "AQIAADgAAAAAAAAAAAAgwGAAAAA/AAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAwAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2023-12-11T02:26:57.875Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 1,
               "Title": "ConfigurationForm.cs",
               "DocumentMoniker": "C:\\Users\\carte\\source\\repos\\SpotDiscover\\DiscoverSpot\\DiscoverSpot\\ConfigurationForm.cs",
               "RelativeDocumentMoniker": "DiscoverSpot\\ConfigurationForm.cs",
               "ToolTip": "C:\\Users\\carte\\source\\repos\\SpotDiscover\\DiscoverSpot\\DiscoverSpot\\ConfigurationForm.cs",
               "RelativeToolTip": "DiscoverSpot\\ConfigurationForm.cs",
-              "ViewState": "AQIAAA4AAAAAAAAAAAAAwCIAAABbAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003525|",
-              "WhenOpened": "2023-12-14T22:18:42.725Z"
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA8AAAAnAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2023-12-14T22:18:42.725Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 2,
               "Title": "MainForm.cs",
               "DocumentMoniker": "C:\\Users\\carte\\source\\repos\\SpotDiscover\\DiscoverSpot\\DiscoverSpot\\MainForm.cs",
               "RelativeDocumentMoniker": "DiscoverSpot\\MainForm.cs",
               "ToolTip": "C:\\Users\\carte\\source\\repos\\SpotDiscover\\DiscoverSpot\\DiscoverSpot\\MainForm.cs",
               "RelativeToolTip": "DiscoverSpot\\MainForm.cs",
-              "ViewState": "AQIAADkAAAAAAAAAAAASwDUAAAAIAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003525|",
-              "WhenOpened": "2023-12-11T02:26:57.836Z"
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABcAAAAzAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2023-12-11T02:26:57.836Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -95,18 +97,20 @@
               "RelativeToolTip": "DiscoverSpot\\Program.cs",
               "ViewState": "AQIAAAQAAAAAAAAAAAAswBUAAAAsAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2023-12-11T02:26:57.906Z"
+              "WhenOpened": "2023-12-11T02:26:57.906Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 3,
               "Title": "ConfigurationForm.cs [Design]",
               "DocumentMoniker": "C:\\Users\\carte\\source\\repos\\SpotDiscover\\DiscoverSpot\\DiscoverSpot\\ConfigurationForm.cs",
               "RelativeDocumentMoniker": "DiscoverSpot\\ConfigurationForm.cs",
               "ToolTip": "C:\\Users\\carte\\source\\repos\\SpotDiscover\\DiscoverSpot\\DiscoverSpot\\ConfigurationForm.cs [Design]",
               "RelativeToolTip": "DiscoverSpot\\ConfigurationForm.cs [Design]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003525|",
-              "WhenOpened": "2023-12-11T02:26:57.906Z"
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2023-12-11T02:26:57.906Z",
+              "EditorCaption": " [Design]"
             },
             {
               "$type": "Document",
@@ -116,8 +120,9 @@
               "RelativeDocumentMoniker": "DiscoverSpot\\MainForm.cs",
               "ToolTip": "C:\\Users\\carte\\source\\repos\\SpotDiscover\\DiscoverSpot\\DiscoverSpot\\MainForm.cs [Design]",
               "RelativeToolTip": "DiscoverSpot\\MainForm.cs [Design]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003525|",
-              "WhenOpened": "2023-12-11T02:26:57.906Z"
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2023-12-11T02:26:57.906Z",
+              "EditorCaption": " [Design]"
             }
           ]
         }
